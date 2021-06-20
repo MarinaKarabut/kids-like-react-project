@@ -62,9 +62,11 @@
   margin-top: 60px;
 }
 
-.progressBarWrapper {
-  margin-bottom: 45px;
-}
+// .progressBarWrapper {
+//   @include desktop {
+//     margin-bottom: 45px;
+//   }
+// }
 
 .score {
   font-weight: 700;

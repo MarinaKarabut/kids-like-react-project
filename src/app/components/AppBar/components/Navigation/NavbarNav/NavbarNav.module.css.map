@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,IAAI,CAAC;EACH,UAAU,EAAE,IAAI;EAChB,OAAO,EAAE,IAAI;EACb,8BAA8B;EAC9B,6BAA6B;EAC7B,YAAY,EAAE,CAAC;CAChB",
-    "sources": [
-        "NavbarNav.module.scss"
-    ],
-    "names": [],
-    "file": "NavbarNav.module.css"
-}

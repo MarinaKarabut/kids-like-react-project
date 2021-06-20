@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import styles from './PlannigPoints.module.scss'
 
 const PlannigPoints = ({points}) => {
-    
+    //  const points = useSelector(state => state.tasks.tasks.updatedWeekPlannedRewards);
     return (
         <div className={styles.plannigPointsWrapper}>
             <p className={styles.planningPointsText}>Определены задач на</p>

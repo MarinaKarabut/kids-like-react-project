@@ -3,10 +3,11 @@
 
 .currentWeek {
   margin-bottom: 20px;
-  @include tablet-end {
+  @include tablet {
     display: none;
   }
   @include desktop {
+    display: block;
     font-size: 18px;
     line-height: 1.222;
     margin-bottom: 30px;

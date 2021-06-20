@@ -70,7 +70,11 @@
 .currentDayContainer {
   @include tablet {
     @include flex();
-    margin-top: 30px;
+    margin-top: 25px;
+    margin-bottom: 103px;
+  }
+  @include desktop {
+    margin-bottom: 0px;
   }
 }
 
@@ -78,6 +82,16 @@
   display: flex;
   justify-content: space-between;
   align-items: stretch;
+  @include tablet {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+  }
+  @include desktop {
+    justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: 94px;
+  }
 }
 
 .mainPageRightSide {

@@ -1,12 +1,21 @@
-
+import {useLocation} from "react-router-dom";
 import PropTypes from 'prop-types';
+// import moment from 'moment'
 
 import SelectDay from '../../../Planning/components/SelectDay'
-
+import CheckboxToggle from '../../../../shared/components/CheckboxToggle'
+// import { ReactComponent as Completed } from '../../icons/completed.svg'
+// import { ReactComponent as Incompleted } from '../../icons/incompleted.svg'
 
 import styles from './TaskCard.module.scss'
 
-const TaskCard = ({ _id, title, reward, imageUrl}) => {
+const TaskCard = ({ _id, title, reward, imageUrl }) => {
+    const location = useLocation();
+    // const today = moment().format('YYYY-MM-DD');
+    // const completedTask = days[active].isCompleted;
+    // const date = days[active].date;
+    // const exactDate = today === date;
+    // const expiredDate = date < today;
 
     return (
         <li className={styles.item}>
@@ -19,7 +28,8 @@ const TaskCard = ({ _id, title, reward, imageUrl}) => {
                     <p className={styles.score}>{reward} балла</p>
                 </div>
                 <div>
-                    <SelectDay id={_id }/>
+                    {location.pathname === "/" && <CheckboxToggle />}
+                    {location.pathname === "/planning" && <SelectDay id={_id }/>}
                 </div>
             </div>
         </li>

@@ -18,9 +18,9 @@ import styles from './PlanningPage.module.scss'
 
 
 const PlanningPage = () => {
-
-    // const points = useSelector(state => state.task.task.points);
+    // const points = useSelector(state => state.task.task.updatedWeekPlannedRewards);
     // console.log(points);
+    // const tasks = useSelector(state => state.task.task, shallowEqual)
 
     const dispatch = useDispatch();
     
@@ -34,11 +34,11 @@ const PlanningPage = () => {
                     <div className={styles.planningPageContainer}>
                         <CurrentPlanningWeek />
                         <div className={styles.planningPageWrapper}>
-                             <PlannigPoints points={ 0}/>
+                             <PlannigPoints points={0}/>
                             <NewTasks />
                         </div>
                     </div>    
-                    <TasksList />
+                    <TasksList/>
                     <div className={ styles.planningPageFooterWrapper}>
                        <Footer/> 
                     </div>

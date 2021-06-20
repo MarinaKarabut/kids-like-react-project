@@ -3,7 +3,7 @@ import 'moment/locale/ru'
 import { Link } from 'react-router-dom';
 
 import ProgressBar from '../../components/ProgressBar'
-import kids from '../../../images/mainPageImg/img-desktop.png'
+import planerDesktop from '../../../images/mainPageImg/planer-desktop.png'
 import CurrentWeek from '../MainPage/CurrentWeek'
 import Footer from '../../Footer'
 
@@ -28,7 +28,7 @@ const MainPage = () => {
                 <div>
                     <p className={styles.mainPageText}>На этот день задач нет</p>
                     <Link to={'/planning'} className={styles.mainPageBtn}>Запланировать задачи</Link>
-                    <img src={kids} alt="" />
+                    <img src={planerDesktop} alt="" />
                     <Footer/>
                 </div>
             </div>
