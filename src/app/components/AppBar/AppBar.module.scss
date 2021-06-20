@@ -1,0 +1,30 @@
+@import "src/shared/styles/base";
+@import "src/shared/styles/common";
+
+.mainPageContainer {
+  width: 100%;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+  padding: 21px;
+  padding-bottom: 21px;
+  background: #ffffff;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.authNavContainer {
+  margin-right: 40px;
+}
+
+.navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoWrapper {
+  display: flex;
+}

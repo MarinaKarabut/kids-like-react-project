@@ -1,0 +1,100 @@
+@import "src/shared/styles/base";
+// @import "../../../../shared/styles/style.scss";
+
+.modalContainer {
+  padding: 32px;
+  max-height: 484px;
+  min-width: 200px;
+  overflow: visible;
+  overflow-y: auto;
+  z-index: 1000;
+  @include tablet {
+    & {
+      min-width: 602px;
+      max-height: 390px;
+      padding: 50px;
+    }
+  }
+}
+
+.imgContainer {
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  z-index: 1000;
+  width: 132px;
+  transform: translate(-50%);
+  @include tablet {
+    & {
+      min-width: 200px;
+    }
+  }
+}
+
+.title {
+  width: 240px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.222;
+  text-align: center;
+  margin-bottom: 36px;
+  margin-top: 45px;
+  color: #000000;
+
+  @include tablet {
+    & {
+      width: 100%;
+      font-size: 30px;
+      line-height: 1.223;
+      margin-top: 120px;
+    }
+  }
+}
+
+.imgModal {
+  width: 100%;
+  display: block;
+  height: auto;
+}
+
+.reward {
+  display: block;
+  width: 100%;
+  border-radius: 50%;
+  height: auto;
+}
+
+.rewardImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include flex(center, center);
+  border: 5px solid #ffbc33;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.rewardList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  @include grid(2, repeat);
+  grid-gap: 30px;
+  @include tablet {
+    & {
+      @include grid(4, repeat);
+    }
+  }
+}
+
+.rewardTitle {
+  max-width: 100px;
+  margin-top: 15px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.25;
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #000000;
+}

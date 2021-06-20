@@ -1,0 +1,47 @@
+@import "src/shared/styles/base";
+@import "src/shared/styles/common";
+
+.icon {
+  width: 12px;
+  height: 15px;
+}
+
+.text {
+  display: block;
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  color: $secondary-text-color;
+  margin-bottom: 10px;
+  @include tablet {
+    &::before {
+      display: inline-block;
+      content: "|";
+      color: #e3e2e7;
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+  }
+  @include tablet {
+    margin-bottom: 0;
+  }
+}
+
+.logoText {
+  color: $secondary-text-color;
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+.footer {
+  @include mobile-end {
+    text-align: center;
+  }
+  @include tablet {
+    @include flex(center, center);
+  }
+  @include desktop {
+    @include flex(flex-end);
+  }
+}

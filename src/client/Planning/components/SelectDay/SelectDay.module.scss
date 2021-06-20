@@ -1,0 +1,16 @@
+@import "src/shared/styles/base";
+
+.selectBtn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #8ec63f;
+  &:hover {
+    background: #ffffff;
+  }
+  &Wrapper {
+    @include flex(center, center);
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,62 @@
+@import "src/shared/styles/base";
+// @import "srs/shared/styles/styles";
+
+.newTask {
+  &Text {
+    display: none;
+  }
+  &BtnMobile {
+    background-image: url(../../../../images/btn.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    width: 54px;
+    border-color: transparent;
+    padding: 27px 27px;
+    position: absolute;
+    left: 75%;
+    transform: translateY(-140%);
+  }
+  &Btn {
+    display: none;
+  }
+
+  @include tablet {
+    &BtnMobile {
+      display: none;
+    }
+    &Btn {
+      display: block;
+      background-image: url(../../../../images/btn.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 50%;
+      width: 54px;
+      border-color: transparent;
+      padding: 27px 27px;
+    }
+
+    &Text {
+      display: block;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 1.25;
+      letter-spacing: 0.04em;
+      color: #a6abb9;
+      margin-right: 20px;
+    }
+
+    &Wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+  }
+  @include desktop {
+    &Wrapper {
+      margin-bottom: 0;
+    }
+  }
+}

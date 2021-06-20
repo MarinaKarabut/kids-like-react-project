@@ -1,0 +1,84 @@
+@import "src/shared/styles/base";
+@import "src/shared/styles/common";
+
+.button:not(:last-child) {
+  width: 134px;
+  margin-right: 10px;
+  @include tablet {
+    margin-right: 12px;
+    width: 154px;
+  }
+}
+
+.authPageContainer {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 21px;
+}
+
+.googleBtn {
+  background: #f6f7fb;
+  color: #000000;
+  margin-bottom: 30px;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  &:hover {
+    background: #f6f7fb;
+    box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.1);
+  }
+}
+.googleLogo {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.form {
+  &Container {
+    margin: auto;
+  }
+  &Group {
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      width: 400px;
+      box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 6px;
+      margin: auto;
+      padding: 39px 20px 40px 40px;
+      background: #ffffff;
+    }
+  }
+
+  &Title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.22;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #000000;
+    @include tablet {
+      font-size: 28px;
+      line-height: 1.21;
+    }
+    @include desktop {
+      text-align: left;
+      font-size: 30px;
+      line-height: 1.23;
+    }
+  }
+  &Text {
+    font-size: 12px;
+    line-height: 1.25;
+    letter-spacing: 0.04em;
+    color: #858598;
+    margin-bottom: 20px;
+  }
+}
+
+.star {
+  color: #eb5757;
+  position: absolute;
+  transform: translateY(-2%);
+}

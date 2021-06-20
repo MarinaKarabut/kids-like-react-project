@@ -1,0 +1,71 @@
+@import "src/shared/styles/base";
+@import "src/shared/styles/common";
+
+.progressBarWrapper {
+  margin-bottom: 45px;
+}
+
+.score {
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #000000;
+  margin-left: 13px;
+}
+
+.secondPoints {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2;
+  margin-right: 19px;
+}
+
+.progressBar {
+  display: none;
+  @include tablet {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
+}
+
+.weekPoints {
+  display: none;
+  @include tablet {
+    display: block;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: right;
+    letter-spacing: 0.04em;
+    color: #a6abb9;
+  }
+}
+
+.weekPoints:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.progress {
+  width: 150px;
+  @include tablet {
+    width: 280px;
+  }
+}
+
+.progressBarMobile {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  flex-direction: column;
+  @include tablet {
+    display: none;
+  }
+  &Text {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.25;
+    letter-spacing: 0.04em;
+    color: #a6abb9;
+    margin-bottom: 8px;
+  }
+}

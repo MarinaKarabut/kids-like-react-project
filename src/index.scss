@@ -1,0 +1,25 @@
+@import "./shared/styles/reset";
+@import "./shared/styles/base";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  color: $primary-text-color;
+  background-color: #fff;
+  @include tablet {
+    & {
+      background-color: #fafafa;
+    }
+  }
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}

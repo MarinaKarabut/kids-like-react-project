@@ -1,0 +1,21 @@
+.navbarMenuLink {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0.04em;
+  color: #858598;
+  margin-right: 15px;
+}
+
+.active {
+  color: #000000;
+}
+.navbarMenuItem:not(:last-child) {
+  &::after {
+    content: "";
+    height: 19px;
+    border: 1px solid #858598;
+    margin-right: 15px;
+  }
+}

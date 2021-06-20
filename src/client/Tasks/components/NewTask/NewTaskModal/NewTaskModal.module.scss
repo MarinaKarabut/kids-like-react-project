@@ -1,0 +1,67 @@
+@import "src/shared/styles/base";
+
+.newTask {
+  border-radius: 6px;
+}
+.logoSvg {
+  position: absolute;
+  top: 100px;
+  right: 16px;
+}
+.newTaskFoto {
+  display: block;
+  margin: 0 auto;
+  width: 280px;
+}
+.form {
+  background: $primary-bg-color;
+  padding: 20px 26px 30px 26px;
+}
+.edit {
+  &SvgWrapper {
+    position: relative;
+  }
+  &Svg {
+    position: absolute;
+    top: 22px;
+  }
+}
+
+.input {
+  padding-left: 20px;
+  width: 228px;
+  margin-bottom: 10px;
+  background: $primary-bg-color;
+  box-shadow: none;
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
+  &::placeholder {
+    color: #ffffff;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.21;
+    letter-spacing: 0.04em;
+  }
+}
+
+.button {
+  margin-top: 10px;
+  align-items: center;
+  width: 60px;
+  height: 30px;
+  background: #ffffff;
+  border-radius: 4px;
+  color: $primary-text-color;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.21;
+  letter-spacing: 0.04em;
+  &:hover {
+    background: $primary-text-color;
+    color: #ffffff;
+  }
+  &Container {
+    @include flex(center, center);
+  }
+}

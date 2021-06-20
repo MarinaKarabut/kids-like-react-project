@@ -1,0 +1,89 @@
+@import "src/shared/styles/base";
+@import "src/shared/styles/common";
+
+.mainPage {
+  padding-top: 40px;
+  padding-bottom: 49px;
+  &Btn {
+    @include flex(center, center);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    height: 48px;
+    max-width: 220px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 60px;
+    text-decoration: none;
+    color: $white-color;
+    background-color: $primary-bg-color;
+    border-radius: 6px;
+    transition: background-color 250ms linear;
+    @include tablet {
+      margin-bottom: 102px;
+    }
+    @include desktop {
+      margin-bottom: 40px;
+    }
+  }
+  &Btn:hover,
+  Btn:focus {
+    background-color: $accent-color;
+  }
+  &Text {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.25;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: #000000;
+    margin-bottom: 20px;
+  }
+}
+
+.myTasks {
+  font-weight: 500;
+  color: $third-text-color;
+  @include mobile-end {
+    margin-bottom: 2px;
+    text-align: center;
+  }
+  @include tablet {
+    margin-right: 20px;
+  }
+  @include desktop {
+    @include flex();
+  }
+}
+
+.currentDay {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  @include mobile-end {
+    text-align: center;
+  }
+  @include desktop {
+    @include flex();
+  }
+}
+
+.currentDayContainer {
+  @include tablet {
+    @include flex();
+    margin-top: 30px;
+  }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.mainPageRightSide {
+  background: #ffbc33;
+}
+
+.nvnn {
+  display: flex;
+}

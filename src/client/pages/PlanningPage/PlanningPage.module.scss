@@ -1,0 +1,57 @@
+@import "src/shared/styles/base";
+@import "src/shared/styles/common";
+
+.planningPage {
+  margin-top: 20px;
+  // margin-bottom: 40px;
+  @include tablet {
+    margin-top: 44px;
+    margin-bottom: 60px;
+  }
+  @include desktop {
+    margin-top: 62px;
+    margin-bottom: 50px;
+  }
+
+  &Container {
+    @include tablet {
+      @include flex(space-between, center);
+      flex-direction: column;
+    }
+    @include desktop {
+      margin-bottom: 45px;
+      flex-direction: row;
+    }
+  }
+  &FooterWrapper {
+    margin-top: 40px;
+    @include tablet {
+      margin-top: 60px;
+    }
+    @include desktop {
+      margin-top: 50px;
+    }
+  }
+}
+
+.planningPageWrapperMobile {
+  padding: 14px;
+  height: 68px;
+  margin-top: 40px;
+  background: #f1f1f1;
+  @include tablet {
+    display: none;
+  }
+}
+
+.planningPageWrapper {
+  display: none;
+  @include tablet {
+    @include flex(space-between, center);
+    flex-direction: column;
+  }
+  @include desktop {
+    @include flex(space-between, center);
+    flex-direction: row;
+  }
+}

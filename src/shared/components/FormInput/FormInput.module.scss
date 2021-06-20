@@ -1,0 +1,36 @@
+@import "src/shared/styles/_base";
+
+.input {
+  width: 280px;
+  height: 42px;
+  background: #f6f7fb;
+  border-color: transparent;
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.15);
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  color: #000000;
+  outline: none;
+  margin-top: 10px;
+  margin-bottom: 23px;
+  &::placeholder {
+    color: $third-text-color;
+  }
+
+  @include tablet {
+    width: 320px;
+  }
+}
+
+.label {
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  color: $secondary-text-color;
+  text-transform: capitalize;
+}
+
+.formGroup {
+  @include flex(start, start);
+  flex-direction: column;
+}

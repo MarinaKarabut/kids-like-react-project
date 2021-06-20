@@ -1,0 +1,42 @@
+.btnLogOut {
+  border: none;
+  background-color: #ffffff;
+  color: #858598;
+}
+
+.email {
+  margin-right: 15px;
+  color: #858598;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.25;
+  &::after {
+    content: "";
+    height: 19px;
+    border: 1px solid #858598;
+    margin-left: 15px;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.firstLetter {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.04em;
+  width: 26px;
+  height: 26px;
+  background: #2196f3;
+  border-radius: 50%;
+  color: #ffffff;
+  margin-right: 10px;
+}

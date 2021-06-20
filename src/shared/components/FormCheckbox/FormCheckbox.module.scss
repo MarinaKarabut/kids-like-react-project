@@ -1,0 +1,59 @@
+@import "src/shared/styles/base";
+
+.checkbox {
+  &InputHidden {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    pointer-events: none;
+  }
+
+  &Input {
+    @include flex(start, center);
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    width: 14px;
+    height: 14px;
+    background: #3e7adc;
+    border: 1px solid #ffff;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-right: 10px;
+    &::before {
+      width: 10px;
+      height: 8px;
+      padding: 3px 4px;
+      display: inline-block;
+      content: "";
+      background-image: url(../../../images/check-mark.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  &InputHidden:checked + &Input {
+    background-color: #ffffff;
+  }
+
+  &Text {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.21;
+    color: #ffffff;
+    text-transform: capitalize;
+  }
+}
+
+.formGroup {
+  @include flex(center, center);
+  flex-direction: row-reverse;
+  &:not(:last-child) {
+    margin-bottom: 14px;
+  }
+}

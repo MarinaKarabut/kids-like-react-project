@@ -1,0 +1,14 @@
+@import "src/shared/styles/base";
+@import "src/shared/styles/common";
+
+.currentWeek {
+  margin-bottom: 20px;
+  @include tablet-end {
+    display: none;
+  }
+  @include desktop {
+    font-size: 18px;
+    line-height: 1.222;
+    margin-bottom: 30px;
+  }
+}

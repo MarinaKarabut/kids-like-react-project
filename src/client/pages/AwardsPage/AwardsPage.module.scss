@@ -1,0 +1,104 @@
+@import "src/shared/styles/base";
+@import "src/shared/styles/common";
+
+.awardsPageContainer {
+  margin-top: 20px;
+  @include tablet {
+    margin-top: 40px;
+    margin-bottom: 23px;
+  }
+}
+
+.awardsGiftsBox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 61px;
+}
+
+.awardsTitle {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.2em;
+  color: #000000;
+  text-transform: uppercase;
+  text-align: center;
+  margin-left: 14px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.weekPoints {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: right;
+  letter-spacing: 0.04em;
+  color: #a6abb9;
+}
+
+.weekPoints:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.awardsBtn {
+  width: 220px;
+  margin-bottom: 40px;
+  @include tablet {
+    margin-bottom: 59px;
+  }
+  @include desktop {
+    margin-bottom: 23px;
+  }
+}
+
+.awardsBtnContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.progressBarWrapper {
+  margin-bottom: 45px;
+}
+
+.score {
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #000000;
+  margin-left: 13px;
+}
+
+.secondPoints {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2;
+  margin-right: 19px;
+}
+
+.progressBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.awardsPageWrapperMobile {
+  padding: 14px;
+  height: 68px;
+  margin-top: 23px;
+  background: #f1f1f1;
+  @include tablet {
+    display: none;
+  }
+}
+
+.awardsPageWrapper {
+  display: none;
+  @include tablet {
+    display: block;
+  }
+}

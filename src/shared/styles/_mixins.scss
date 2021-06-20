@@ -1,0 +1,68 @@
+@mixin flex($main-axis: flex-start, $cross-axis: stretch) {
+  display: flex;
+
+  @if $main-axis != flex-start {
+    justify-content: $main-axis;
+  }
+  @if $cross-axis != stretch {
+    align-items: $cross-axis;
+  }
+}
+
+@mixin grid($columns-value: 1fr, $columns-type: simple) {
+  display: grid;
+  @if $columns-type == simple {
+    grid-template-columns: $columns-value;
+  }
+  @if $columns-type == repeat {
+    grid-template-columns: repeat($columns-value, 1fr);
+  }
+  @if $columns-type == auto-fill {
+    grid-template-columns: repeat(auto-fill, minmax($columns-value, 1fr));
+  }
+  @if $columns-type == auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax($columns-value, 1fr));
+  }
+}
+
+@mixin mobile {
+  @media screen and (min-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin mobile-end {
+  @media screen and (max-width: $mobile-end) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin tablet-snippet {
+  @media screen and (min-width: $tablet) and (max-width: $tablet-end) {
+    @content;
+  }
+}
+
+@mixin tablet-end {
+  @media screen and (max-width: $tablet-end) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin desktop-end {
+  @media screen and (max-width: $desktop-end) {
+    @content;
+  }
+}

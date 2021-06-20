@@ -1,0 +1,36 @@
+@import "src/shared/styles/base";
+
+.contact {
+  &CardItem {
+    width: 280px;
+    height: 370px;
+    box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+  }
+  &Name {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.25;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #000000;
+    margin-bottom: 6px;
+  }
+  &Position {
+    font-size: 10px;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+    color: #858598;
+    margin-bottom: 6px;
+  }
+  &Description {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 1.25;
+    letter-spacing: 0.04em;
+    color: #000000;
+  }
+  &CardFooter {
+    padding: 20px;
+  }
+}

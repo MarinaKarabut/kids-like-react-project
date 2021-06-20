@@ -1,0 +1,32 @@
+@import "src/shared/styles/_base";
+// @import "src/shared/styles/styles";
+@import "src/shared/styles/common";
+
+.planForWeek {
+  @include flex(center, center);
+  flex-direction: column;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.22;
+  letter-spacing: 0.04em;
+  color: #000000;
+  margin-bottom: 30px;
+
+  @include tablet {
+    display: block;
+    margin-bottom: 41px;
+    margin-top: 0;
+  }
+  @include desktop {
+    margin-bottom: 0;
+  }
+}
+
+.week {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.2em;
+  color: #000000;
+  margin-top: 10px;
+}

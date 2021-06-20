@@ -1,0 +1,26 @@
+@import "src/shared/styles/base";
+
+.balanceContainer {
+  margin-left: 40px;
+  @include flex(start, center);
+  @include tablet {
+    margin-left: 42px;
+  }
+}
+
+.text {
+  width: 52px;
+  font-weight: 500;
+  color: $third-text-color;
+  margin-right: 6px;
+  @include tablet {
+    margin-right: 10px;
+  }
+}
+
+.score {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.214;
+  color: $primary-text-color;
+}
