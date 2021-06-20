@@ -2,8 +2,10 @@
 @import "src/shared/styles/common";
 
 .mainPage {
-  padding-top: 40px;
-  padding-bottom: 49px;
+  @include tablet {
+    padding-top: 40px;
+    margin-bottom: 0;
+  }
   &Btn {
     @include flex(center, center);
     font-weight: 500;
@@ -38,15 +40,37 @@
     color: #000000;
     margin-bottom: 20px;
   }
+  &Container {
+    @include desktop {
+      display: flex;
+    }
+  }
+  &FooterWrapper {
+    margin-top: 49px;
+    margin-bottom: 41px;
+  }
+  &WrapperMobile {
+    padding: 14px;
+    height: 68px;
+    margin-top: 23px;
+    background: #f1f1f1;
+    @include tablet {
+      display: none;
+    }
+  }
+  &Wrapper {
+    display: none;
+    @include tablet {
+      display: block;
+    }
+  }
 }
 
 .myTasks {
   font-weight: 500;
   color: $third-text-color;
-  @include mobile-end {
-    margin-bottom: 2px;
-    text-align: center;
-  }
+  margin-bottom: 2px;
+  text-align: center;
   @include tablet {
     margin-right: 20px;
   }
@@ -79,25 +103,20 @@
 }
 
 .wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
+  text-align: center;
+  margin-bottom: 61px;
   @include tablet {
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column-reverse;
+    margin-bottom: 0;
   }
   @include desktop {
     justify-content: space-between;
     flex-direction: row;
+    text-align: start;
     margin-bottom: 94px;
+    margin-left: 110px;
   }
-}
-
-.mainPageRightSide {
-  background: #ffbc33;
-}
-
-.nvnn {
-  display: flex;
 }

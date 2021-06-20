@@ -1,0 +1,108 @@
+@import "../../../shared//styles/base";
+
+.daysTabs {
+  @include mobile-end {
+    @include flex();
+    flex-direction: column-reverse;
+  }
+  @include tablet {
+    @include flex(center, center);
+    // padding: 22px 22px;
+    height: 70px;
+    background: $primary-bg-color;
+  }
+  @include desktop {
+    align-items: start;
+    justify-content: flex-end;
+    padding: 0;
+    width: 240px;
+    height: 100%;
+  }
+}
+
+.dayTab {
+  display: none;
+  @include desktop {
+    display: block;
+    text-align: start;
+    width: 190px;
+    padding: 12px 27px 13px 10px;
+    padding-left: 27px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.214;
+    border-radius: 6px 0px 0px 6px;
+    background-color: rgba(253, 253, 253, 0.5);
+    transition: background 250ms linear;
+    margin-bottom: 6px;
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    @include desktop {
+      background: $white-color;
+    }
+  }
+}
+
+.daysTabsList {
+  @include flex(center, center);
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  @include tablet {
+    margin-bottom: 0;
+  }
+  @include desktop {
+    display: block;
+    margin-bottom: 0;
+    margin-top: 140px;
+  }
+}
+
+.dayTabMob {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.25;
+  width: 35px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-transform: capitalize;
+  letter-spacing: 0.04em;
+  background-color: rgba(255, 188, 51, 0.5);
+  margin-right: 4px;
+  margin-top: 20px;
+  border-radius: 4px;
+
+  @include tablet {
+    width: 40px;
+    height: 26px;
+    margin-right: 16px;
+    margin-top: 0px;
+    background-color: rgba(253, 253, 253, 0.5);
+  }
+  @include desktop {
+    display: none;
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    background: $accent-color;
+    @include tablet {
+      background: $white-color;
+    }
+  }
+}
+.weekTab {
+  display: none;
+  @include tablet {
+    display: block;
+    margin-top: 27px;
+    margin-right: 28px;
+  }
+  @include desktop {
+    display: none;
+  }
+}
