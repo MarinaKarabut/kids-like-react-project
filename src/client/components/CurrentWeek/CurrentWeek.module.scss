@@ -5,6 +5,9 @@
   margin-bottom: 20px;
   font-size: 14px;
   line-height: 1.21;
+  @include tablet {
+    margin-bottom: 0;
+  }
   @include desktop {
     display: block;
     font-size: 18px;

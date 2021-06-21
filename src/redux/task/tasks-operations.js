@@ -1,9 +1,6 @@
 import axios from "axios"
 
 import actions from "./tasks-actions"
-// import TaskService from "./tasks-service"
-
-// // const taskService = new TaskService()
 
 export const addTask = (body) => async (dispatch) => {
   dispatch(actions.addTasksRequest())

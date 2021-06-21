@@ -43,6 +43,7 @@
   &Container {
     @include desktop {
       display: flex;
+      justify-content: center;
     }
   }
   &FooterWrapper {
@@ -62,6 +63,10 @@
     display: none;
     @include tablet {
       display: block;
+      margin-bottom: 25px;
+    }
+    @include desktop {
+      margin-bottom: 0;
     }
   }
 }
@@ -113,10 +118,9 @@
     margin-bottom: 0;
   }
   @include desktop {
-    justify-content: space-between;
+    justify-content: space-around;
     flex-direction: row;
     text-align: start;
     margin-bottom: 94px;
-    margin-left: 110px;
   }
 }
