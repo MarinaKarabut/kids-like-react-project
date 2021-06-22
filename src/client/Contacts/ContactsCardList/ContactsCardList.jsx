@@ -7,7 +7,6 @@ import styles from './ContactsCardList.module.scss'
 
 function ContactsCardList() {
     const contactsCardEl = contacts.map(({ id, ...contact }) => <ContactsCardItem key={id} {...contact} />)
-    console.log(contacts);
     return (
         <ul className={styles.contactsList}>
             {contactsCardEl}

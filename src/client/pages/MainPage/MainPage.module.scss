@@ -6,6 +6,9 @@
     padding-top: 40px;
     margin-bottom: 0;
   }
+  @include desktop {
+    min-width: 1040px;
+  }
   &Btn {
     @include flex(center, center);
     font-weight: 500;
@@ -122,5 +125,11 @@
     flex-direction: row;
     text-align: start;
     margin-bottom: 94px;
+  }
+}
+
+.containerTaskList {
+  @include desktop {
+    margin-left: 75px;
   }
 }

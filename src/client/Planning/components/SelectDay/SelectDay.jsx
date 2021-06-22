@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useDispatch ,useSelector, shallowEqual } from 'react-redux'
+import { useDispatch} from 'react-redux'
 
 import {taskUpdate} from '../../../../redux/task/tasks-operations'
 
@@ -10,13 +10,11 @@ import styles from './SelectDay.module.scss'
 
 
 
-const SelectDay = (props) => {
-    
+const SelectDay = ({ days, id }) => {
     const [showDayList, setShowDayList] = useState(false)
 
-    const [days, setDays ]= useState([])
+    const [daysActive, setDaysActive] = useState([])
 
-    
     const dispatch = useDispatch()
 
     const toggleCheckList = () => {
@@ -26,24 +24,25 @@ const SelectDay = (props) => {
 
     const onClickHandler = (id) => {
         toggleCheckList()
-        dispatch(taskUpdate(id, days))
+        dispatch(taskUpdate(id, daysActive))
+        console.log(id)
 
     }
     const switchActiveDays = (arrActives) => {
-        setDays(arrActives)
+        setDaysActive(arrActives)
     }
 
 
     return (
         <>
-            { showDayList && <DaysList onClick={switchActiveDays}/>}
+            {showDayList && <DaysList days={days } onClick={switchActiveDays}/>}
             {!showDayList ?
                 (<Button className={styles.selectBtn} aria-haspopup="true"
                     aria-expanded={showDayList} onClick={toggleCheckList}>
                     <span className={styles.selectBtnWrapper}>+</span>
                 </Button>) :
                 (<Button type="submit" className={styles.selectBtn} aria-haspopup="true"
-                    aria-expanded={showDayList}  onClick={()=>onClickHandler(props.id)}>
+                    aria-expanded={showDayList}  onClick={()=>onClickHandler(id)}>
                     <span className={styles.selectBtnWrapper}>ok</span>
                 </Button>)}
         </>

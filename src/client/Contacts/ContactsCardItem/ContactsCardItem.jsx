@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 
 import styles from './ContactsCardItem.module.scss'
 
@@ -17,3 +17,18 @@ function ContactsCardItem({ name, position,imageUrl, description }) {
 };
 
 export default ContactsCardItem;
+
+ContactsCardItem.defaultProps = {
+    name: '',
+    position: '',
+    imageUrl: '',
+    description:''
+
+}
+
+ContactsCardItem.propTypes = {
+    name: PropTypes.string,
+    position: PropTypes.string,
+    imageUrl: PropTypes.string,
+    description: PropTypes.string,
+}

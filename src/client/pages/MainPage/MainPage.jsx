@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { shallowEqual, useSelector } from 'react-redux'
 import moment from 'moment';
 import 'moment/locale/ru' 
 import { Link } from 'react-router-dom';
@@ -10,16 +12,34 @@ import Footer from '../../Footer'
 
 import styles from './MainPage.module.scss'
 import DaysTabs from '../../components/DaysTabs/DaysTabs';
+import TasksList from '../../Tasks/components/TasksList'
 
 const MainPage = () => {
+    const tasks = useSelector(state => state.task.task, shallowEqual)
+
+    const [activeTab, setActiveTab] = useState(0)
+    console.log(activeTab)
+
+    const handleClick = (id) => {
+        setActiveTab(id)
+    }
+
+     const filterTask = (idx) => {
+        const arrayFilterTask = tasks.map(task => { return task.days[idx].isActive ? task : null }).filter(item => item !== null)
+        return arrayFilterTask;
+    }
+
+    let arrayFilterTask = filterTask(activeTab)
+
+    console.log(arrayFilterTask);
+    
     const dateNow = moment().format('dddd, DD-MM-YYYY');
 
     return (
         <section className={styles.mainPageContainer}>
             <div>
-                <DaysTabs />
+                <DaysTabs onClick={ handleClick}/>
             </div>
-            {/* <div className={styles.container}> */}
                 <div className={styles.mainPage}>
                     <div className={styles.wrapper}>
                         <div className={styles.myTasksWrapper}>
@@ -32,15 +52,21 @@ const MainPage = () => {
                         <div className={styles.mainPageWrapper}>
                             <ProgressBar />
                         </div>
+                </div>
+                {!arrayFilterTask.length?(<div>
+                        <p className={styles.mainPageText}>На этот день задач нет</p>
+                        <Link to={routes.planning} className={styles.mainPageBtn}>Запланировать задачи</Link>
+                        <img src={planerDesktop} alt="" />
+                        <div className={styles.mainPageFooterWrapper}>
+                        <Footer/>
                     </div>
-                    <p className={styles.mainPageText}>На этот день задач нет</p>
-                    <Link to={routes.planning} className={styles.mainPageBtn}>Запланировать задачи</Link>
-                    <img src={planerDesktop} alt="" />
+                    </div>): (<div className={`${styles.container} ${styles.containerTaskList}`}>
+                    <TasksList tasks={arrayFilterTask} />
                     <div className={styles.mainPageFooterWrapper}>
                         <Footer/>
                     </div>
+                </div>)}
                 </div>
-            {/* </div> */}
             <div className={styles.mainPageWrapperMobile}>
                 <ProgressBar/> 
             </div>

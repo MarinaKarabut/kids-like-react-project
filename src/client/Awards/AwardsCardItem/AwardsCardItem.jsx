@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import CheckboxToggle from '../../../shared/components/CheckboxToggle'
 
@@ -22,3 +23,15 @@ const AwardsCardItem=({title, price,imageUrl}) =>{
 };
 
 export default AwardsCardItem;
+
+AwardsCardItem.defaultProps = {
+    title: '',
+    price: '',
+    imageUrl: '',
+}
+
+AwardsCardItem.propTypes = {
+    title: PropTypes.string,
+    price: PropTypes.number,
+    imageUrl: PropTypes.string,
+}

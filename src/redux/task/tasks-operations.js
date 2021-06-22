@@ -1,6 +1,6 @@
 import axios from "axios"
 
-import actions from "./tasks-actions"
+import actions, { taskActiveSwitcherRequest } from "./tasks-actions"
 
 export const addTask = (body) => async (dispatch) => {
   dispatch(actions.addTasksRequest())
@@ -25,15 +25,26 @@ export const fetchTasks = () => async (dispatch) => {
 }
 
 export const taskUpdate = (id, body) => async (dispatch) => {
-  const formatData = {
+  const formData = {
     days: body,
   }
   dispatch(actions.taskUpdateRequest())
   try {
-    const { data } = await axios.patch(`/task/single-active/${id}`, formatData)
+    const { data } = await axios.patch(`/task/single-active/${id}`, formData)
     console.log(data)
     dispatch(actions.taskUpdateSuccess(data))
   } catch (error) {
     dispatch(actions.taskUpdateError(error))
+  }
+}
+
+export const taskActiveSwitcher = (taskId, body) => async (dispatch) => {
+  dispatch(actions.taskUpdateRequest(taskActiveSwitcherRequest))
+  try {
+    const { data } = await axios.patch(`/task/switch/${taskId}}`, body)
+    console.log(data)
+    dispatch(actions.taskUpdateSuccess(data))
+  } catch (error) {
+    dispatch(actions.addTasksSuccess(error))
   }
 }

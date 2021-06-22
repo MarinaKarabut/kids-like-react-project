@@ -1,16 +1,10 @@
-
-import { shallowEqual, useSelector } from 'react-redux'
-
+import PropTypes from 'prop-types';
 import AwardsCardItem from '../AwardsCardItem'
-
-
 
 import styles from './AwardsCard.module.scss'
 
-const AwardsCard = () => {
- 
-    const ruGifts = useSelector(state => state.awards.awards,shallowEqual)
-
+const AwardsCard = ({ ruGifts}) => {
+     
     const awardsCardEl = ruGifts.map(({ id, ...gift }) => <AwardsCardItem key={id}{...gift} />)
         
     return (
@@ -22,3 +16,11 @@ const AwardsCard = () => {
     
 
 export default AwardsCard;
+
+AwardsCard.defaultProps = {
+    ruGifts: [],
+}
+
+AwardsCard.propTypes = {
+    ruGifts: PropTypes.array,
+}

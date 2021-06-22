@@ -22,10 +22,12 @@ export default CheckboxToggle;
 
 
 CheckboxToggle.defaultProps = {
-    // checked:false,
+    checked:false,
+    name:'',
     label: '',
     className: '',
-    onChange: () => { }
+    onChange: () => { },
+    
 }
 
 

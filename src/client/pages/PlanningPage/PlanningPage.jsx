@@ -1,32 +1,17 @@
-import {useEffect} from 'react'
-import { shallowEqual, useSelector,useDispatch } from 'react-redux'
+import { shallowEqual, useSelector } from 'react-redux'
 
 import CurrentPlanningWeek from '../../Planning/components/CurrentPlanningWeek'
 import PlannigPoints from '../../Planning/components/PlannigPoints'
 import TasksList from '../../Tasks/components/TasksList'
-
-import {fetchTasks} from '../../../redux/task/tasks-operations'
-
-
- 
 import NewTasks from '../../Tasks/components/NewTask'
 import Footer from '../../Footer'
 
 import styles from './PlanningPage.module.scss'
 
 
-
-
 const PlanningPage = () => {
-    // const points = useSelector(state => state.task.task.updatedWeekPlannedRewards);
-    // console.log(points);
-    // const tasks = useSelector(state => state.task.task, shallowEqual)
-
-    const dispatch = useDispatch();
-    
-    useEffect(() => {
-        dispatch(fetchTasks())
-    }, [dispatch])
+    const points = useSelector(state => state.task.points.updatedWeekPlannedRewards, shallowEqual);
+    const tasks = useSelector(state => state.task.task, shallowEqual)
  
         return (
             <section className={styles.planningPage}>
@@ -34,22 +19,21 @@ const PlanningPage = () => {
                     <div className={styles.planningPageContainer}>
                         <CurrentPlanningWeek />
                         <div className={styles.planningPageWrapper}>
-                             <PlannigPoints points={0}/>
+                             <PlannigPoints points={points}/>
                             <NewTasks />
                         </div>
                     </div>    
-                    <TasksList/>
+                    <TasksList tasks={ tasks}/>
                     <div className={ styles.planningPageFooterWrapper}>
                        <Footer/> 
-                    </div>
-                    
-                    
+                    </div>    
                 </div>
                 <div className={styles.planningPageWrapperMobile}>
-                        <PlannigPoints points={0} />
+                        <PlannigPoints points={points} />
                         <NewTasks />
-                    </div>
+                </div>
             </section>
+            
         )
 };
 

@@ -1,15 +1,19 @@
-import {useLocation} from "react-router-dom";
+import { useState, useEffect } from 'react'
+import { useDispatch ,useSelector, shallowEqual } from 'react-redux'
+import { useLocation } from "react-router-dom";
 import PropTypes from 'prop-types';
-// import moment from 'moment'
+import moment from 'moment'
 
 import SelectDay from '../../../Planning/components/SelectDay'
 import CheckboxToggle from '../../../../shared/components/CheckboxToggle'
-// import { ReactComponent as Completed } from '../../icons/completed.svg'
-// import { ReactComponent as Incompleted } from '../../icons/incompleted.svg'
+import { ReactComponent as Completed } from '../../icons/completed.svg'
+import { ReactComponent as Incompleted } from '../../icons/incompleted.svg'
 
 import styles from './TaskCard.module.scss'
 
-const TaskCard = ({ _id, title, reward, imageUrl }) => {
+
+
+const TaskCard = ({ _id, title, reward, imageUrl, days, idx, toggleCompleted }) => {
     const location = useLocation();
     // const today = moment().format('YYYY-MM-DD');
     // const completedTask = days[active].isCompleted;
@@ -28,8 +32,10 @@ const TaskCard = ({ _id, title, reward, imageUrl }) => {
                     <p className={styles.score}>{reward} балла</p>
                 </div>
                 <div>
-                    {location.pathname === "/" && <CheckboxToggle />}
-                    {location.pathname === "/planning" && <SelectDay id={_id }/>}
+                    {location.pathname === "/" && <CheckboxToggle/>}
+                    {/* {location.pathname === "/" && exactDate && <CheckboxToggle />} */}
+                    {/* {location.pathname === "/" && expiredDate && completed? (<Completed />):(<Incompleted />)} */}
+                    {location.pathname === "/planning" && <SelectDay id={_id}  days={days}/>}
                 </div>
             </div>
         </li>

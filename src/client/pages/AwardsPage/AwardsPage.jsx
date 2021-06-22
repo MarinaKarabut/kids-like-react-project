@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import { shallowEqual, useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
-
 import {fetchAwards} from '../../../redux/awards/awards-operation'
 
 import AwardsCard from '../../Awards/AwardsCard'
@@ -11,23 +11,25 @@ import ProgressBar from '../../components/ProgressBar'
 import Modal from '../../../shared/components/Modal'
 import AwardsModal from '../../Awards/AwardsModal'
 import Footer from '../../Footer'
-import NewTask from '../../Tasks/components/NewTask'
+// import NewTask from '../../Tasks/components/NewTask'
 
 import styles from './AwardsPage.module.scss'
 
 const AwardsPage = () => {
+    const ruGifts = useSelector(state => state.awards.awards, shallowEqual)
+    console.log(ruGifts);
 
-     const [openModal, setOpenModal] = useState(false);
-    const toggleModal = () => {
-        setOpenModal(!openModal);
-    };
-
-  
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(fetchAwards())
     }, [dispatch])
+
+    const [openModal, setOpenModal] = useState(false);
+    const toggleModal = () => {
+        setOpenModal(!openModal);
+    };
+
  
 
     return (
@@ -44,7 +46,7 @@ const AwardsPage = () => {
                                     
                 </div>              
                 <div className={styles.awardsCardContainer}>
-                    <AwardsCard/>
+                    <AwardsCard ruGifts={ ruGifts}/>
                 </div>
                 <div className={styles.awardsBtnContainer}>
                     {openModal && (<Modal onClose={toggleModal}><AwardsModal /></Modal>)}

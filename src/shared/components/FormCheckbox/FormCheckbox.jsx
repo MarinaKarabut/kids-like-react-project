@@ -1,11 +1,16 @@
 import PropTypes from 'prop-types'
+import {useState} from 'react'
 import { v4 } from 'uuid';
 
 import styles from './FormCheckbox.module.scss'
 
-const FormCheckbox = ({ label, className, onChange,...checkboxProps}) => {
+const FormCheckbox = ({ label, className, onChange,isActive,...checkboxProps}) => {
     const id = v4();
+// const [checkbox, setCheckbox] = useState(isActive)
 
+//   const handleChange = () => {
+//     setCheckbox(!checkbox)
+//   }
     return (
         <div className={styles.formGroup}>
             <div>

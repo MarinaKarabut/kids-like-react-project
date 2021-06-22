@@ -1,10 +1,8 @@
-import { useState } from 'react'
-import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types'
 
 import styles from './PlannigPoints.module.scss'
 
 const PlannigPoints = ({points}) => {
-    //  const points = useSelector(state => state.tasks.tasks.updatedWeekPlannedRewards);
     return (
         <div className={styles.plannigPointsWrapper}>
             <p className={styles.planningPointsText}>Определены задач на</p>
@@ -15,3 +13,13 @@ const PlannigPoints = ({points}) => {
 };
 
 export default PlannigPoints;
+
+
+PlannigPoints.defaultProps = {
+    points: 0,
+}
+
+
+PlannigPoints.propTypes = {
+    points: PropTypes.number,
+}
