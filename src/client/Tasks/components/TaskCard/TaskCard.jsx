@@ -7,19 +7,21 @@ import moment from 'moment'
 import SelectDay from '../../../Planning/components/SelectDay'
 import CheckboxToggle from '../../../../shared/components/CheckboxToggle'
 import { ReactComponent as Completed } from '../../icons/completed.svg'
-import { ReactComponent as Incompleted } from '../../icons/incompleted.svg'
+import { ReactComponent as InCompleted } from '../../icons/incompleted.svg'
 
 import styles from './TaskCard.module.scss'
 
 
 
-const TaskCard = ({ _id, title, reward, imageUrl, days, idx, toggleCompleted }) => {
+const TaskCard = ({ _id, title, reward, imageUrl, days,active, idx, toggleCompleted }) => {
     const location = useLocation();
     // const today = moment().format('YYYY-MM-DD');
     // const completedTask = days[active].isCompleted;
     // const date = days[active].date;
     // const exactDate = today === date;
     // const expiredDate = date < today;
+
+    //  const [completed, setCompleted] = useState(completedTask);
 
     return (
         <li className={styles.item}>
@@ -33,8 +35,8 @@ const TaskCard = ({ _id, title, reward, imageUrl, days, idx, toggleCompleted }) 
                 </div>
                 <div>
                     {location.pathname === "/" && <CheckboxToggle/>}
-                    {/* {location.pathname === "/" && exactDate && <CheckboxToggle />} */}
-                    {/* {location.pathname === "/" && expiredDate && completed? (<Completed />):(<Incompleted />)} */}
+                    {/* {location.pathname === "/" && exactDate && <CheckboxToggle checked={completed}/>} */}
+                    {/* {location.pathname === "/" && expiredDate && completed? (<Completed />):(<InCompleted />)} */}
                     {location.pathname === "/planning" && <SelectDay id={_id}  days={days}/>}
                 </div>
             </div>

@@ -1,6 +1,6 @@
-import { Suspense, lazy } from "react"
+import { Suspense, lazy, useEffect } from "react"
 import { Switch, Route } from "react-router-dom"
-import { useDispatch } from "react-redux"
+import { shallowEqual, useDispatch, useSelector } from "react-redux"
 
 import PrivetRoute from "../../app/components/AppBar/components/PrivetRoute"
 import PublicRoute from "../../app/components/AppBar/components/PublicRoute"
@@ -17,45 +17,59 @@ const NotFoundPage = lazy(() => import("../../app/pages/NotFoundPage"))
 const MainPage = lazy(() => import("../../client/pages/MainPage"))
 
 const App = () => {
+  const isLoading = useSelector(
+    (state) => state.loader.loaderReducer,
+    shallowEqual
+  )
+
   const dispatch = useDispatch()
 
-  dispatch(getCurrentUser())
+  useEffect(() => {
+    dispatch(getCurrentUser())
+  }, [dispatch])
+
   return (
     <>
-      <AppBar />
-      <Suspense fallback={<Loader />}>
-        <Switch>
-          <PublicRoute
-            exact
-            path={routes.auth}
-            restricted
-            redirectTo={routes.main}
-            component={AuthPage}
-          />
-          <PrivetRoute
-            exact
-            path={routes.main}
-            redirectTo={routes.auth}
-            component={MainPage}
-          />
-          <PrivetRoute
-            exact
-            path={routes.planning}
-            redirectTo={routes.auth}
-            component={PlanningPage}
-          />
+      {!isLoading ? (
+        <>
+          <AppBar />
+          <Suspense fallback={<Loader onLoad={true} />}>
+            <Switch>
+              <PublicRoute
+                exact
+                path={routes.auth}
+                restricted
+                redirectTo={routes.main}
+                component={AuthPage}
+              />
+              <PrivetRoute
+                exact
+                path={routes.main}
+                redirectTo={routes.auth}
+                component={MainPage}
+              />
+              <PrivetRoute
+                exact
+                path={routes.planning}
+                redirectTo={routes.auth}
+                component={PlanningPage}
+              />
 
-          <PrivetRoute
-            exact
-            path={routes.awards}
-            redirectTo={routes.auth}
-            component={AwardsPage}
-          />
+              <PrivetRoute
+                exact
+                path={routes.awards}
+                redirectTo={routes.auth}
+                component={AwardsPage}
+              />
 
-          <Route exact path={routes.contacts} component={ContactsPage} />
-          <Route component={NotFoundPage} />
-        </Switch>
-      </Suspense>
+              <Route exact path={routes.contacts} component={ContactsPage} />
+              <Route component={NotFoundPage} />
+            </Switch>
+          </Suspense>
+        </>
+      ) : (
+        <Loader onLoad={true} />
+      )}
     </>
   )
 }

@@ -18,7 +18,6 @@ const MainPage = () => {
     const tasks = useSelector(state => state.task.task, shallowEqual)
 
     const [activeTab, setActiveTab] = useState(0)
-    console.log(activeTab)
 
     const handleClick = (id) => {
         setActiveTab(id)
@@ -30,8 +29,6 @@ const MainPage = () => {
     }
 
     let arrayFilterTask = filterTask(activeTab)
-
-    console.log(arrayFilterTask);
     
     const dateNow = moment().format('dddd, DD-MM-YYYY');
 
@@ -61,7 +58,7 @@ const MainPage = () => {
                         <Footer/>
                     </div>
                     </div>): (<div className={`${styles.container} ${styles.containerTaskList}`}>
-                    <TasksList tasks={arrayFilterTask} />
+                        <TasksList tasks={arrayFilterTask} active={activeTab}/>
                     <div className={styles.mainPageFooterWrapper}>
                         <Footer/>
                     </div>

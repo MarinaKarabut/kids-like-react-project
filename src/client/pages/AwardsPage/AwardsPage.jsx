@@ -17,7 +17,6 @@ import styles from './AwardsPage.module.scss'
 
 const AwardsPage = () => {
     const ruGifts = useSelector(state => state.awards.awards, shallowEqual)
-    console.log(ruGifts);
 
     const dispatch = useDispatch();
 

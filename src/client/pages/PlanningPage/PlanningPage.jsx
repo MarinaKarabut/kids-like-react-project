@@ -1,10 +1,12 @@
-import { shallowEqual, useSelector } from 'react-redux'
+import { shallowEqual, useSelector,useDispatch } from 'react-redux'
+import { useEffect } from 'react'
 
 import CurrentPlanningWeek from '../../Planning/components/CurrentPlanningWeek'
 import PlannigPoints from '../../Planning/components/PlannigPoints'
 import TasksList from '../../Tasks/components/TasksList'
 import NewTasks from '../../Tasks/components/NewTask'
 import Footer from '../../Footer'
+import {fetchTasks} from '../../../redux/task/tasks-operations'
 
 import styles from './PlanningPage.module.scss'
 
@@ -12,6 +14,12 @@ import styles from './PlanningPage.module.scss'
 const PlanningPage = () => {
     const points = useSelector(state => state.task.points.updatedWeekPlannedRewards, shallowEqual);
     const tasks = useSelector(state => state.task.task, shallowEqual)
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchTasks())
+    }, [dispatch])
  
         return (
             <section className={styles.planningPage}>

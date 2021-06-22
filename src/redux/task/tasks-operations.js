@@ -7,7 +7,6 @@ export const addTask = (body) => async (dispatch) => {
   try {
     const data = await axios.post("/task", body)
     dispatch(actions.addTasksSuccess(data))
-    console.log(data)
   } catch (error) {
     dispatch(actions.addTasksError(error))
   }
@@ -17,7 +16,6 @@ export const fetchTasks = () => async (dispatch) => {
   dispatch(actions.fetchTasksRequest())
   try {
     const data = await axios.get("/user/info")
-    console.log(data)
     dispatch(actions.fetchTasksSuccess(data))
   } catch (error) {
     dispatch(actions.fetchTasksError(error))

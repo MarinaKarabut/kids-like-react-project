@@ -15,6 +15,7 @@ import storage from "redux-persist/lib/storage"
 import authReducer from "./auth/auth-reducer"
 import awardsReducer from "./awards/awards-reducer"
 import tasksNewReducer from "./task/tasks-reducer"
+import loaderReducer from "./loader/loader-reducer"
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -35,6 +36,7 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     awards: awardsReducer,
     task: tasksNewReducer,
+    loader: loaderReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === "development",

@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
 
 import {taskUpdate} from '../../../../redux/task/tasks-operations'
 
@@ -17,10 +18,10 @@ const SelectDay = ({ days, id }) => {
 
     const dispatch = useDispatch()
 
+
     const toggleCheckList = () => {
         setShowDayList(!showDayList);
     }
-
 
     const onClickHandler = (id) => {
         toggleCheckList()
