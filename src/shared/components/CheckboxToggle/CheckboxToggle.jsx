@@ -8,9 +8,9 @@ function CheckboxToggle({label, className, ...checkboxProps}) {
     return (
         <div className={styles.switch}>
           <div className={styles.switchControl}>
-            <input id={id} className={ `${styles.switchToggle} ${className}`} type="checkbox" {...checkboxProps} />
+            <input id={id} className={ `${styles.switchToggle} ${className}`} type="checkbox"  {...checkboxProps} />
             <label aria-hidden="true" className={styles.switchTrack} htmlFor={id}>
-                <span className={styles.switchIcon}></span>
+            <span className={styles.switchIcon}></span>
             </label>
             <div aria-hidden="true" className={styles.switchMarker}></div>
           </div>

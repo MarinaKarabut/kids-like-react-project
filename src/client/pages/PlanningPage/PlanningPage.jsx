@@ -21,12 +21,6 @@ const PlanningPage = () => {
     
     const tasks = useSelector(state => state.task.task, shallowEqual)
 
-    // const dispatch = useDispatch();
-
-    // useEffect(() => {
-    //     dispatch(addTask())
-    // }, [dispatch])
- 
         return (
             <section className={styles.planningPage}>
                 <div className={styles.container}>

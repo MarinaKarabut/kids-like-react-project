@@ -11,13 +11,14 @@ import styles from './SelectDay.module.scss'
 
 
 
-const SelectDay = ({ days, id }) => {
+const SelectDay = (props) => {
     const [showDayList, setShowDayList] = useState(false)
 
     const [daysActive, setDaysActive] = useState([])
 
-    const dispatch = useDispatch()
+    const { id } = props
 
+    const dispatch = useDispatch()
 
     const toggleCheckList = () => {
         setShowDayList(!showDayList);
@@ -26,17 +27,15 @@ const SelectDay = ({ days, id }) => {
     const onClickHandler = (id) => {
         toggleCheckList()
         dispatch(taskUpdate(id, daysActive))
-        console.log(id)
-
     }
     const switchActiveDays = (arrActives) => {
         setDaysActive(arrActives)
     }
 
-
+    
     return (
         <>
-            {showDayList && <DaysList  onClick={switchActiveDays}/>}
+            {showDayList && <DaysList  isActive={switchActiveDays}/>}
             {!showDayList ?
                 (<Button className={styles.selectBtn} aria-haspopup="true"
                     aria-expanded={showDayList} onClick={toggleCheckList}>

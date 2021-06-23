@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useDispatch ,useSelector, shallowEqual } from 'react-redux'
+import { useDispatch, useSelector, shallowEqual } from 'react-redux'
 import { useLocation } from "react-router-dom";
 import PropTypes from 'prop-types';
 import moment from 'moment'
@@ -10,7 +10,7 @@ import { ReactComponent as Completed } from '../../icons/completed.svg'
 import { ReactComponent as InCompleted } from '../../icons/incompleted.svg'
 
 import styles from './TaskCard.module.scss'
-
+import { taskSwitchActive } from '../../../../redux/task/tasks-operations';
 
 
 const TaskCard = ({ _id, title, reward, imageUrl, days,active, idx, toggleCompleted }) => {

@@ -7,7 +7,7 @@ import styles from './DaysList.module.scss'
 
 const dayStatus = Array(7).fill(false)
 
-const DaysList = ({onClick}) => {
+const DaysList = ({isActive}) => {
   const [dayStatusList, setDayStatusList] = useState(dayStatus)
 
   const handleCheck = (idx) => {
@@ -16,9 +16,9 @@ const DaysList = ({onClick}) => {
     setDayStatusList(arr)
   };
 
-  onClick(dayStatusList)
+  isActive(dayStatusList)
 
-  const dayWeek = dayList.map(({ days, name }, idx) => <FormCheckbox key={name } label={days} name={name} checked={dayStatusList[idx]} onChange={()=>handleCheck(idx)}/>)
+  const dayWeek = dayList.map(({ days, name }, idx) => <FormCheckbox key={name}  label={days} name={name} checked={dayStatusList[idx]} onChange={()=>handleCheck(idx)}/>)
   // const dayWeek = days.map(({ date,isActive}, idx) => <FormCheckbox key={idx } label={date} isActive={isActive} checked={dayStatusList[idx]} onChange={()=>handleCheck(idx)}/>)
     return (
         <div className={styles.checkboxList}>

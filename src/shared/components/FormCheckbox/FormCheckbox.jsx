@@ -4,13 +4,9 @@ import { v4 } from 'uuid';
 
 import styles from './FormCheckbox.module.scss'
 
-const FormCheckbox = ({ label, className, onChange,isActive,...checkboxProps}) => {
+const FormCheckbox = ({ label, className, onChange, ...checkboxProps }) => {
     const id = v4();
-// const [checkbox, setCheckbox] = useState(isActive)
 
-//   const handleChange = () => {
-//     setCheckbox(!checkbox)
-//   }
     return (
         <div className={styles.formGroup}>
             <div>
@@ -39,7 +35,7 @@ FormCheckbox.defaultProps = {
 
 FormCheckbox.propTypes = {
     name: PropTypes.string.isRequired,
-    onClick: PropTypes.func,
+    onChange: PropTypes.func,
     className: PropTypes.string,
     checked: PropTypes.bool,
     label: PropTypes.string
