@@ -10,7 +10,8 @@ import {
 } from "./tasks-actions"
 import { getCurrentUserSuccess, loginSuccess } from "../auth/auth-actions"
 
-// const initialStateTasks=[]
+const initialStateTasks = []
+
 const initialStateUpdatedRewardsPlanned = 0
 
 const initialStateUpdatedRewardsGained = 0
@@ -19,7 +20,7 @@ const initialStateUpdatedBalance = 0
 
 const initialStateError = null
 
-const task = createReducer([], {
+const task = createReducer(initialStateTasks, {
   [getCurrentUserSuccess]: (_, { payload }) => payload.week.tasks,
   [loginSuccess]: (_, { payload }) => payload.week.tasks,
   [addTasksSuccess]: (state, { payload }) => [...state, payload],

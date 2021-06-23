@@ -14,7 +14,7 @@ const ProgressBar = () => {
     if (updatedWeekGainedRewards) {
         pointsGained=updatedWeekGainedRewards
     }
-    
+
 
     const counterProgress = (pointsPlanned, pointsGained) => {
         const percent = (pointsGained * 100 / pointsPlanned).toFixed()
@@ -26,16 +26,16 @@ const ProgressBar = () => {
     return (
         <div className={styles.progressBarWrapper}>
             <p className={styles.weekPoints}>Заработано баллов за эту неделю: <span className={styles.score}>{pointsGained}</span></p>
-            <p className={styles.weekPoints}>Запланировано баллов на эту неделю: <span className={styles.score}>{pointsPlanned? pointsPlanned: 0}</span></p>
+            <p className={styles.weekPoints}>Запланировано баллов на эту неделю: <span className={styles.score}>{pointsPlanned}</span></p>
                 <div className={styles.progressBar}>
-                    <span className={styles.points}><span className={styles.secondPoints}>{pointsGained}</span>/ {pointsPlanned? pointsPlanned: 0}</span>
+                    <span className={styles.points}><span className={styles.secondPoints}>{pointsGained}</span>/ {pointsPlanned}</span>
                     <progress max="100" value={progress} className={styles.progress}></progress>
                 </div>  
             
             <div className={styles.progressBarMobile}>
                 <p className={styles.progressBarMobileText}>Заработано баллов:</p>
                 <div>
-                    <span className={styles.points}><span className={styles.secondPoints}>{pointsGained}</span>/ {pointsPlanned? pointsPlanned: 0}</span>
+                    <span className={styles.points}><span className={styles.secondPoints}>{pointsGained}</span>/ {pointsPlanned}</span>
                     <progress max="100" value={progress} className={styles.progress}></progress>
                 </div>
             </div>
