@@ -20,6 +20,10 @@ export const taskSwitchActiveSuccess = createAction(
 )
 export const taskSwitchActiveError = createAction("task/taskSwitchActiveError")
 
+// export const tasksActiveRequest = createAction("tasks/tasksActiveRequest")
+// export const tasksActiveSuccess = createAction("tasks/tasksActiveSuccess")
+// export const tasksActiveError = createAction("tasks/tasksActiveError")
+
 const actions = {
   addTasksRequest,
   addTasksSuccess,
@@ -33,6 +37,9 @@ const actions = {
   taskSwitchActiveRequest,
   taskSwitchActiveSuccess,
   taskSwitchActiveError,
+  // tasksActiveRequest,
+  // tasksActiveSuccess,
+  // tasksActiveError,
 }
 
 export default actions

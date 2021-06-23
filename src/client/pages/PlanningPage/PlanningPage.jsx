@@ -6,7 +6,7 @@ import PlannigPoints from '../../Planning/components/PlannigPoints'
 import TasksList from '../../Tasks/components/TasksList'
 import NewTasks from '../../Tasks/components/NewTask'
 import Footer from '../../Footer'
-import {fetchTasks} from '../../../redux/task/tasks-operations'
+import {addTask} from '../../../redux/task/tasks-operations'
 
 import styles from './PlanningPage.module.scss'
 
@@ -21,11 +21,11 @@ const PlanningPage = () => {
     
     const tasks = useSelector(state => state.task.task, shallowEqual)
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(fetchTasks())
-    }, [dispatch])
+    // useEffect(() => {
+    //     dispatch(addTask())
+    // }, [dispatch])
  
         return (
             <section className={styles.planningPage}>

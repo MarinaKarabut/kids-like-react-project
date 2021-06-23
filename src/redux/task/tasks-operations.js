@@ -46,3 +46,14 @@ export const taskSwitchActive = (taskId, body) => async (dispatch) => {
     dispatch(actions.taskSwitchActiveError(error))
   }
 }
+
+// export const tasksActive = (tasks) => async (dispatch) => {
+//   dispatch(actions.tasksActiveRequest())
+//   try {
+//     const { data } = await axios.patch("/task/active", tasks)
+//     console.log(data)
+//     dispatch(actions.tasksActiveSuccess(data))
+//   } catch (error) {
+//     dispatch(actions.tasksActiveError(error))
+//   }
+// }

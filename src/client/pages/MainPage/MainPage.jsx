@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { shallowEqual, useSelector } from 'react-redux'
+import { useState ,useEffect} from 'react';
+import { shallowEqual, useSelector,useDispatch } from 'react-redux'
 import moment from 'moment';
 import 'moment/locale/ru' 
 import { Link } from 'react-router-dom';
@@ -13,6 +13,7 @@ import Footer from '../../Footer'
 import styles from './MainPage.module.scss'
 import DaysTabs from '../../components/DaysTabs/DaysTabs';
 import TasksList from '../../Tasks/components/TasksList'
+
 
 const MainPage = () => {
     const tasks = useSelector(state => state.task.task, shallowEqual)
@@ -29,6 +30,7 @@ const MainPage = () => {
     }
 
     let arrayFilterTask = filterTask(activeTab)
+
     
     const dateNow = moment().format('dddd, DD-MM-YYYY');
 

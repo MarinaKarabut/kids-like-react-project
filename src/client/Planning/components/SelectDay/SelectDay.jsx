@@ -36,7 +36,7 @@ const SelectDay = ({ days, id }) => {
 
     return (
         <>
-            {showDayList && <DaysList days={days } onClick={switchActiveDays}/>}
+            {showDayList && <DaysList  onClick={switchActiveDays}/>}
             {!showDayList ?
                 (<Button className={styles.selectBtn} aria-haspopup="true"
                     aria-expanded={showDayList} onClick={toggleCheckList}>
