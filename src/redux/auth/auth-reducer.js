@@ -4,13 +4,18 @@ import { createReducer } from "@reduxjs/toolkit"
 import actions from "./auth-actions"
 
 const initialStateUser = {
-  name: "",
   email: "",
 }
 
 const initialStateToken = null
 
 const initialStateError = null
+
+const initialStateBalance = 0
+
+const initialStateRewardsGained = 0
+
+const initialStateRewardsPlanned = 0
 
 const user = createReducer(initialStateUser, {
   [actions.registerSuccess]: (_, { payload }) => payload.user,
@@ -46,9 +51,33 @@ const isAuthenticated = createReducer(false, {
   [actions.logoutSuccess]: () => false,
 })
 
+const balance = createReducer(initialStateBalance, {
+  [actions.registerSuccess]: (_, { payload }) => payload.user.balance,
+  [actions.loginSuccess]: (_, { payload }) => payload.user.balance,
+  [actions.getCurrentUserSuccess]: (_, { payload }) => payload.user.balance,
+  [actions.logoutSuccess]: () => initialStateBalance,
+})
+
+const rewardsGained = createReducer(initialStateRewardsGained, {
+  [actions.registerSuccess]: (_, { payload }) => payload.week.rewardsGained,
+  [actions.loginSuccess]: (_, { payload }) => payload.week.rewardsGained,
+  [actions.getCurrentUserSuccess]: (_, { payload }) =>
+    payload.week.rewardsGained,
+})
+
+const rewardsPlanned = createReducer(initialStateRewardsPlanned, {
+  [actions.registerSuccess]: (_, { payload }) => payload.week.rewardsPlanned,
+  [actions.loginSuccess]: (_, { payload }) => payload.week.rewardsPlanned,
+  [actions.getCurrentUserSuccess]: (_, { payload }) =>
+    payload.week.rewardsPlanned,
+})
+
 export default combineReducers({
   user,
   isAuthenticated,
   token,
   error,
+  balance,
+  rewardsGained,
+  rewardsPlanned,
 })

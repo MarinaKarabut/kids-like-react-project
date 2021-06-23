@@ -16,8 +16,8 @@ import {
   taskUpdateSuccess,
   fetchTasksRequest,
   fetchTasksSuccess,
-  taskActiveSwitcherRequest,
-  taskActiveSwitcherSuccess,
+  taskSwitchActiveRequest,
+  taskSwitchActiveSuccess,
 } from "../task/tasks-actions"
 
 import {
@@ -49,8 +49,8 @@ const loaderReducer = createReducer(false, {
   [fetchTasksRequest]: () => true,
   [fetchTasksSuccess]: () => false,
 
-  [taskActiveSwitcherRequest]: () => true,
-  [taskActiveSwitcherSuccess]: () => false,
+  [taskSwitchActiveRequest]: () => true,
+  [taskSwitchActiveSuccess]: () => false,
 
   [fetchAwardsRequest]: () => true,
   [fetchAwardsSuccess]: () => false,

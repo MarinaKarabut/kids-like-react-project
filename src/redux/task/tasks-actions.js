@@ -12,15 +12,13 @@ export const fetchTasksRequest = createAction("fetchTasksRequest")
 export const fetchTasksSuccess = createAction("fetchTasksSuccess")
 export const fetchTasksError = createAction("fetchTasksError")
 
-export const taskActiveSwitcherRequest = createAction(
-  "task/taskActiveSwitcherRequest"
+export const taskSwitchActiveRequest = createAction(
+  "task/taskSwitchActiveRequest"
 )
-export const taskActiveSwitcherSuccess = createAction(
-  "task/taskActiveSwitcherSuccess"
+export const taskSwitchActiveSuccess = createAction(
+  "task/taskSwitchActiveSuccess"
 )
-export const taskActiveSwitcherError = createAction(
-  "task/taskActiveSwitcherError"
-)
+export const taskSwitchActiveError = createAction("task/taskSwitchActiveError")
 
 const actions = {
   addTasksRequest,
@@ -32,9 +30,9 @@ const actions = {
   taskUpdateRequest,
   taskUpdateSuccess,
   taskUpdateError,
-  taskActiveSwitcherRequest,
-  taskActiveSwitcherSuccess,
-  taskActiveSwitcherError,
+  taskSwitchActiveRequest,
+  taskSwitchActiveSuccess,
+  taskSwitchActiveError,
 }
 
 export default actions

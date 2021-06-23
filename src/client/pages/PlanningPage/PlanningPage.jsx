@@ -12,7 +12,13 @@ import styles from './PlanningPage.module.scss'
 
 
 const PlanningPage = () => {
-    const points = useSelector(state => state.task.points.updatedWeekPlannedRewards, shallowEqual);
+    
+    let points = useSelector(state => state.auth.rewardsPlanned, shallowEqual);
+    const updatedWeekPlannedRewards = useSelector(state => state.task.updatedRewardsPlanned, shallowEqual);
+    if (updatedWeekPlannedRewards) {
+        points=updatedWeekPlannedRewards
+    }
+    
     const tasks = useSelector(state => state.task.task, shallowEqual)
 
     const dispatch = useDispatch();

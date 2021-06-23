@@ -5,7 +5,13 @@ import styles from './Balance.module.scss'
 
 const Balance = () => {
     
-    const balance = useSelector(state => state.auth.user.balance, shallowEqual)
+    let balance = useSelector(state => state.auth.balance, shallowEqual)
+
+    const updatedBalance = useSelector(state => state.task.updatedBalance, shallowEqual)
+    
+    if (updatedBalance) {
+        balance=updatedBalance
+    }
     
     return (<div className={styles.balanceContainer}>
         <p className={styles.text}>Баланс баллов:</p>

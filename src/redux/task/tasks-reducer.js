@@ -2,36 +2,53 @@ import { combineReducers } from "redux"
 import { createReducer } from "@reduxjs/toolkit"
 import {
   taskUpdateSuccess,
+  taskUpdateError,
   addTasksSuccess,
   fetchTasksSuccess,
+  addTasksError,
+  taskSwitchActiveSuccess,
 } from "./tasks-actions"
 import { getCurrentUserSuccess, loginSuccess } from "../auth/auth-actions"
 
+// const initialStateTasks=[]
+const initialStateUpdatedRewardsPlanned = 0
+
+const initialStateUpdatedRewardsGained = 0
+
+const initialStateUpdatedBalance = 0
+
+const initialStateError = null
+
 const task = createReducer([], {
-  [addTasksSuccess]: (_, { payload }) => payload.week.tasks,
   [getCurrentUserSuccess]: (_, { payload }) => payload.week.tasks,
-  // [fetchTasksSuccess]: (_, { payload }) => payload.week.tasks,
   [loginSuccess]: (_, { payload }) => payload.week.tasks,
-  // [taskUpdateSuccess]: (_, { payload }) => payload,
+  [addTasksSuccess]: (state, { payload }) => [...state, payload],
+  // [fetchTasksSuccess]: (_, { payload }) => payload.week.tasks,
 })
 
-// const error = createReducer(null, {
-//   [actions.createTaskError]: (_, { payload }) => payload,
-//   [actions.taskUpdateError]: (_, { payload }) => payload,
-// })
+const updatedRewardsPlanned = createReducer(initialStateUpdatedRewardsPlanned, {
+  [taskUpdateSuccess]: (_, { payload }) => payload.updatedWeekPlannedRewards,
+})
 
-const points = createReducer(
-  {},
-  {
-    [taskUpdateSuccess]: (_, { payload }) => payload,
-    // [getCurrentUserSuccess]: (_, { payload }) => payload.week.rewardsPlanned,
-    [getCurrentUserSuccess]: (_, { payload }) => payload.week,
-  }
-)
+const updatedRewardsGained = createReducer(initialStateUpdatedRewardsGained, {
+  [taskSwitchActiveSuccess]: (_, { payload }) =>
+    payload.updatedWeekGainedRewards,
+})
+
+const updatedBalance = createReducer(initialStateUpdatedBalance, {
+  [taskSwitchActiveSuccess]: (_, { payload }) => payload.updatedBalance,
+})
+
+const error = createReducer(initialStateError, {
+  [taskUpdateError]: (_, { payload }) => payload,
+  [addTasksError]: (_, { payload }) => payload,
+})
 
 const tasksNewReducer = combineReducers({
   task,
-  points,
-  // error,
+  updatedRewardsPlanned,
+  updatedRewardsGained,
+  updatedBalance,
+  error,
 })
 export default tasksNewReducer

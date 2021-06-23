@@ -32,6 +32,7 @@ const MainPage = () => {
     
     const dateNow = moment().format('dddd, DD-MM-YYYY');
 
+
     return (
         <section className={styles.mainPageContainer}>
             <div>
