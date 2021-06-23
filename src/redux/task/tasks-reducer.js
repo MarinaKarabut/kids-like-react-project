@@ -4,9 +4,9 @@ import {
   taskUpdateSuccess,
   taskUpdateError,
   addTasksSuccess,
-  fetchTasksSuccess,
   addTasksError,
   taskSwitchActiveSuccess,
+  taskSwitchActiveError,
 } from "./tasks-actions"
 import { getCurrentUserSuccess, loginSuccess } from "../auth/auth-actions"
 
@@ -42,6 +42,7 @@ const updatedBalance = createReducer(initialStateUpdatedBalance, {
 const error = createReducer(initialStateError, {
   [taskUpdateError]: (_, { payload }) => payload,
   [addTasksError]: (_, { payload }) => payload,
+  [taskSwitchActiveError]: (_, { payload }) => payload,
 })
 
 const tasksNewReducer = combineReducers({
