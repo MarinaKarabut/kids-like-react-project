@@ -8,20 +8,27 @@ import SelectDay from '../../../Planning/components/SelectDay'
 import CheckboxToggle from '../../../../shared/components/CheckboxToggle'
 import { ReactComponent as Completed } from '../../icons/completed.svg'
 import { ReactComponent as InCompleted } from '../../icons/incompleted.svg'
+import {taskSwitchActive} from '../../../../redux/task/tasks-operations'
 
 import styles from './TaskCard.module.scss'
-import { taskSwitchActive } from '../../../../redux/task/tasks-operations';
 
 
-const TaskCard = ({ _id, title, reward, imageUrl, days,active, idx, toggleCompleted }) => {
+
+const TaskCard = ({ _id, title, reward, imageUrl, days}) => {
     const location = useLocation();
-    // const today = moment().format('YYYY-MM-DD');
-    // const completedTask = days[active].isCompleted;
-    // const date = days[active].date;
-    // const exactDate = today === date;
-    // const expiredDate = date < today;
+    const currentDay = moment().format('YYYY-MM-DD');
 
-    //  const [completed, setCompleted] = useState(completedTask);
+
+    const [completed, setCompleted] = useState(false)
+    console.log(completed)
+
+    const dispatch = useDispatch()
+    
+    const toggleCompleted = (id) => {
+        setCompleted(!completed)
+        dispatch(taskSwitchActive(id, { date: currentDay }))
+    }
+
 
     return (
         <li className={styles.item}>
@@ -34,7 +41,7 @@ const TaskCard = ({ _id, title, reward, imageUrl, days,active, idx, toggleComple
                     <p className={styles.score}>{reward} балла</p>
                 </div>
                 <div>
-                    {location.pathname === "/" && <CheckboxToggle/>}
+                    {location.pathname === "/" && <CheckboxToggle checked={completed} onChange={() => toggleCompleted(_id)} />}
                     {/* {location.pathname === "/" && exactDate && <CheckboxToggle checked={completed}/>} */}
                     {/* {location.pathname === "/" && expiredDate && completed? (<Completed />):(<InCompleted />)} */}
                     {location.pathname === "/planning" && <SelectDay id={_id}  days={days}/>}

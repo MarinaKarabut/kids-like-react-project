@@ -1,6 +1,5 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { useEffect } from 'react'
 
 import {taskUpdate} from '../../../../redux/task/tasks-operations'
 
@@ -30,6 +29,7 @@ const SelectDay = (props) => {
     }
     const switchActiveDays = (arrActives) => {
         setDaysActive(arrActives)
+        
     }
 
     

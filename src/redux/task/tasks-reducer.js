@@ -24,12 +24,10 @@ const task = createReducer(initialStateTasks, {
   [getCurrentUserSuccess]: (_, { payload }) => payload.week.tasks,
   [loginSuccess]: (_, { payload }) => payload.week.tasks,
   [addTasksSuccess]: (state, { payload }) => [...state, payload],
-  // [taskUpdateSuccess]: (state, { payload }) => [...state, payload.updatedTask],
-  // [fetchTasksSuccess]: (_, { payload }) => payload.week.tasks,
-})
-
-const updatedTask = createReducer([], {
-  [taskUpdateSuccess]: (_, { payload }) => payload.updatedTask,
+  // [taskSwitchActiveSuccess]: (state, { payload }) => [
+  //   ...state,
+  //   payload.updatedTask,
+  // ],
 })
 
 const updatedRewardsPlanned = createReducer(initialStateUpdatedRewardsPlanned, {
@@ -53,7 +51,6 @@ const error = createReducer(initialStateError, {
 
 const tasksNewReducer = combineReducers({
   task,
-  updatedTask,
   updatedRewardsPlanned,
   updatedRewardsGained,
   updatedBalance,

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState ,useEffect} from 'react'
 import PropTypes from 'prop-types';
 
 import { dayList } from './list'
@@ -7,7 +7,7 @@ import styles from './DaysList.module.scss'
 
 const dayStatus = Array(7).fill(false)
 
-const DaysList = ({isActive}) => {
+const DaysList = ({ isActive }) => {
   const [dayStatusList, setDayStatusList] = useState(dayStatus)
 
   const handleCheck = (idx) => {
@@ -19,7 +19,6 @@ const DaysList = ({isActive}) => {
   isActive(dayStatusList)
 
   const dayWeek = dayList.map(({ days, name }, idx) => <FormCheckbox key={name}  label={days} name={name} checked={dayStatusList[idx]} onChange={()=>handleCheck(idx)}/>)
-  // const dayWeek = days.map(({ date,isActive}, idx) => <FormCheckbox key={idx } label={date} isActive={isActive} checked={dayStatusList[idx]} onChange={()=>handleCheck(idx)}/>)
     return (
         <div className={styles.checkboxList}>
             {dayWeek }

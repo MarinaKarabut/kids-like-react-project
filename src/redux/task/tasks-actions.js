@@ -1,16 +1,16 @@
 import { createAction } from "@reduxjs/toolkit"
 
-export const addTasksRequest = createAction("tasks/addTasksRequest")
-export const addTasksSuccess = createAction("tasks/addTasksSuccess")
-export const addTasksError = createAction("tasks/addTasksError")
+export const addTasksRequest = createAction("task/addTasksRequest")
+export const addTasksSuccess = createAction("task/addTasksSuccess")
+export const addTasksError = createAction("task/addTasksError")
 
 export const taskUpdateRequest = createAction("task/taskUpdateRequest")
 export const taskUpdateSuccess = createAction("task/taskUpdateSuccess")
 export const taskUpdateError = createAction("task/taskUpdateError")
 
-export const fetchTasksRequest = createAction("fetchTasksRequest")
-export const fetchTasksSuccess = createAction("fetchTasksSuccess")
-export const fetchTasksError = createAction("fetchTasksError")
+export const fetchTasksRequest = createAction("task/fetchTasksRequest")
+export const fetchTasksSuccess = createAction("task/fetchTasksSuccess")
+export const fetchTasksError = createAction("task/fetchTasksError")
 
 export const taskSwitchActiveRequest = createAction(
   "task/taskSwitchActiveRequest"
