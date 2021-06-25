@@ -9,6 +9,7 @@ import {
   taskSwitchActiveError,
 } from "./tasks-actions"
 import { getCurrentUserSuccess, loginSuccess } from "../auth/auth-actions"
+import { fetchTasks } from "./tasks-operations"
 
 const initialStateTasks = []
 
@@ -24,10 +25,11 @@ const task = createReducer(initialStateTasks, {
   [getCurrentUserSuccess]: (_, { payload }) => payload.week.tasks,
   [loginSuccess]: (_, { payload }) => payload.week.tasks,
   [addTasksSuccess]: (state, { payload }) => [...state, payload],
-  // [taskSwitchActiveSuccess]: (state, { payload }) => [
-  //   ...state,
-  //   payload.updatedTask,
-  // ],
+  [fetchTasks]: (_, { payload }) => payload.week.tasks,
+  [taskSwitchActiveSuccess]: (state, { payload }) => [
+    ...state,
+    payload.updatedTask,
+  ],
 })
 
 const updatedRewardsPlanned = createReducer(initialStateUpdatedRewardsPlanned, {

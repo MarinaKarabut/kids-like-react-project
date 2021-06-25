@@ -5,8 +5,8 @@ import cat from './images/cat.png';
 
 import styles from './AwardsModal.module.scss';
 
-const RewardModal = () => {
-    const awards = useSelector((state => state.awards.awards), shallowEqual);
+const RewardModal = ({awards}) => {
+    // const awards = useSelector((state => state.awards.awards), shallowEqual);
 
     const itemElements = awards.map(item => (
         <li key={item.id}>

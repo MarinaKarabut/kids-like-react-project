@@ -13,12 +13,19 @@ import Footer from '../../Footer'
 import styles from './MainPage.module.scss'
 import DaysTabs from '../../components/DaysTabs/DaysTabs';
 import TasksList from '../../Tasks/components/TasksList'
+import { fetchTasks } from '../../../redux/task/tasks-operations';
 
 
 const MainPage = () => {
     const tasks = useSelector(state => state.task.task, shallowEqual)
 
     const [activeTab, setActiveTab] = useState(0)
+
+    const dispatch = useDispatch();
+    
+    useEffect(() => {
+        dispatch(fetchTasks());
+    }, [dispatch]);
 
     const handleClick = (id) => {
         setActiveTab(id)

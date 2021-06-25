@@ -18,7 +18,6 @@ const TaskCard = ({ _id, title, reward, imageUrl, days}) => {
     const location = useLocation();
     const currentDay = moment().format('YYYY-MM-DD');
 
-
     const [completed, setCompleted] = useState(false)
     console.log(completed)
 
@@ -26,7 +25,7 @@ const TaskCard = ({ _id, title, reward, imageUrl, days}) => {
     
     const toggleCompleted = (id) => {
         setCompleted(!completed)
-        dispatch(taskSwitchActive(id, { date: currentDay }))
+        dispatch(taskSwitchActive(id, currentDay))
     }
 
 

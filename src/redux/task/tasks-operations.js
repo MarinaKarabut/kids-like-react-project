@@ -37,9 +37,12 @@ export const taskUpdate = (id, body) => async (dispatch) => {
 }
 
 export const taskSwitchActive = (id, body) => async (dispatch) => {
+  const date = {
+    date: body,
+  }
   dispatch(actions.taskSwitchActiveRequest())
   try {
-    const { data } = await axios.patch(`/task/switch/${id}}`, body)
+    const { data } = await axios.patch(`/task/switch/${id}}`, date)
     console.log(data)
     dispatch(actions.taskSwitchActiveSuccess(data))
   } catch (error) {
