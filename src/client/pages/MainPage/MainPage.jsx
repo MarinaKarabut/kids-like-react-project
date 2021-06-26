@@ -1,6 +1,5 @@
 import { useState ,useEffect} from 'react';
 import { shallowEqual, useSelector,useDispatch } from 'react-redux'
-import moment from 'moment';
 import 'moment/locale/ru' 
 import { Link } from 'react-router-dom';
 import routes from '../../../app/routes'
@@ -20,11 +19,6 @@ import styles from './MainPage.module.scss'
 
 const MainPage = () => {
     const tasks = useSelector(state => state.task.task, shallowEqual)
-    console.log(tasks)
-    const index = tasks.findIndex(
-      (item) => item._id === '60d2fff6eb09e6453cdddf04'
-    )
-    console.log(index)
 
     const [activeTab, setActiveTab] = useState(0)
 
@@ -43,10 +37,8 @@ const MainPage = () => {
         return arrayFilterTask;
     }
 
-    let arrayFilterTask = filterTask(activeTab)
+    const arrayFilterTask = filterTask(activeTab)
 
-    
-   
     const dateActiveTab= useCurrentDay(activeTab)
 
 

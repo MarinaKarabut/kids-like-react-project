@@ -4,7 +4,7 @@ import { v4 } from 'uuid';
 
 import styles from './CheckboxToggle.module.scss'
 
-function CheckboxToggle({ label, className, onClick }) {
+function CheckboxToggle({ className, onClick }) {
   const [checked, setChecked] = useState(false)
     const handleChange = () => {
         setChecked(!checked)

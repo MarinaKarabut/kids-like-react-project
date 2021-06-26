@@ -1,10 +1,8 @@
-import { useState, useEffect } from 'react'
-import { useDispatch, useSelector, shallowEqual } from 'react-redux'
-import { useLocation } from "react-router-dom";
+import { useState } from 'react'
+import { useDispatch} from 'react-redux'
 import PropTypes from 'prop-types';
 import moment from 'moment'
 
-import SelectDay from '../../../Planning/components/SelectDay'
 import CheckboxToggle from '../../../../shared/components/CheckboxToggle'
 import { ReactComponent as Completed } from '../../icons/completed.svg'
 import { ReactComponent as InCompleted } from '../../icons/incompleted.svg'
@@ -14,16 +12,20 @@ import styles from './TaskCard.module.scss'
 
 
 
-const TaskCard = ({ _id, title, reward, imageUrl, days }) => {
-    const location = useLocation();
+const TaskCard = ({ _id, title, reward, imageUrl, days , active}) => {
     const currentDay = moment().format('YYYY-MM-DD');
+    const completedTask = days[active].isCompleted;
+    const date = days[active].date;
+    const exactDate = currentDay === date;
+    const expiredDate = date < currentDay;
+    
 
-    const [completed, setCompleted] = useState(false)
+    const [completed, setCompleted] = useState(completedTask)
 
     const dispatch = useDispatch()
     
     const toggleCompleted = (id) => {
-        setCompleted(!completed)
+        // setCompleted(!completed)
         dispatch(taskSwitchActive(id, currentDay))
     }
 
@@ -39,10 +41,9 @@ const TaskCard = ({ _id, title, reward, imageUrl, days }) => {
                     <p className={styles.score}>{reward} балла</p>
                 </div>
                 <div>
-                    {location.pathname === "/" && <CheckboxToggle checked={completed} onChange={() => toggleCompleted(_id)} />}
-                    {/* {location.pathname === "/" && exactDate && <CheckboxToggle checked={completed}/>} */}
-                    {/* {location.pathname === "/" && expiredDate && completed? (<Completed />):(<InCompleted />)} */}
-                    {location.pathname === "/planning" && <SelectDay id={_id}  days={days}/>}
+                    {exactDate && <CheckboxToggle onClick={() => toggleCompleted(_id)} />}
+                    {expiredDate && completed && <Completed />}
+                    {expiredDate && !completed && <InCompleted />}
                 </div>
             </div>
         </li>

@@ -26,10 +26,18 @@ const task = createReducer(initialStateTasks, {
   [loginSuccess]: (_, { payload }) => payload.week.tasks,
   [addTasksSuccess]: (state, { payload }) => [...state, payload],
   [fetchTasks]: (_, { payload }) => payload.week.tasks,
-  [taskSwitchActiveSuccess]: (state, { payload }) => [
-    ...state,
-    payload.updatedTask,
-  ],
+  [taskSwitchActiveSuccess]: (state, { payload }) => {
+    const newState = [...state]
+    const index = newState.findIndex(
+      (item) => item._id === payload.updatedTask.id
+    )
+    newState.splice(index, 1, {
+      ...payload.updatedTask,
+      _id: payload.updatedTask.id,
+    })
+    return [...newState]
+  },
+
   [taskUpdateSuccess]: (state, { payload }) => {
     const newState = [...state]
     const index = newState.findIndex(

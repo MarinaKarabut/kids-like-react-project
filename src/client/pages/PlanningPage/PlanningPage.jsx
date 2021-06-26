@@ -1,12 +1,10 @@
-import { shallowEqual, useSelector,useDispatch } from 'react-redux'
-import { useEffect } from 'react'
+import { shallowEqual, useSelector } from 'react-redux'
 
 import CurrentPlanningWeek from '../../Planning/components/CurrentPlanningWeek'
 import PlannigPoints from '../../Planning/components/PlannigPoints'
-import TasksList from '../../Tasks/components/TasksList'
+import PlanningTaskList from '../../Planning/components/PlanningTaskList'
 import NewTasks from '../../Tasks/components/NewTask'
 import Footer from '../../Footer'
-import {addTask} from '../../../redux/task/tasks-operations'
 
 import styles from './PlanningPage.module.scss'
 
@@ -31,7 +29,7 @@ const PlanningPage = () => {
                             <NewTasks />
                         </div>
                     </div>    
-                    <TasksList tasks={ tasks}/>
+                    <PlanningTaskList tasks={ tasks}/>
                     <div className={ styles.planningPageFooterWrapper}>
                        <Footer/> 
                     </div>    
