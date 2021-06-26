@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import moment from 'moment'
 import PropTypes from 'prop-types';
 import { days } from './days'
 import CurrentWeek from '../CurrentWeek'
@@ -5,10 +7,18 @@ import CurrentWeek from '../CurrentWeek'
 import styles from './DaysTabs.module.scss'
 
 
-const DaysTabs = ({onClick}) => {
+const DaysTabs = ({ onClick }) => {
+    const [currentDay, setCurrentDay] = useState(0)
+    
+    const selectedDay = (idx) => {
+        onClick(idx);
+        setCurrentDay(idx)
+    }
+
+
     const dayWeekEl = days.map(({ id, day,shortDay }, idx) =>
-        <li key={id} onClick={()=>onClick(idx)}>
-            <span className={styles.dayTab}><span className={styles.text}>{day}</span></span>
+        <li key={id} onClick={() => selectedDay(idx)}>
+            <span className={idx !== currentDay? styles.dayTab : styles.dayTabActive} ><span className={ styles.text}>{day}</span></span>
             <span className={ styles.dayTabMob}>{shortDay}</span>
         </li>)
    

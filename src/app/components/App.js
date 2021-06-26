@@ -17,11 +17,6 @@ const NotFoundPage = lazy(() => import("../../app/pages/NotFoundPage"))
 const MainPage = lazy(() => import("../../client/pages/MainPage"))
 
 const App = () => {
-  const isLoading = useSelector(
-    (state) => state.loader.loaderReducer,
-    shallowEqual
-  )
-
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -30,46 +25,42 @@ const App = () => {
 
   return (
     <>
-      {!isLoading ? (
-        <>
-          <AppBar />
-          <Suspense fallback={<Loader onLoad={true} />}>
-            <Switch>
-              <PublicRoute
-                exact
-                path={routes.auth}
-                restricted
-                redirectTo={routes.main}
-                component={AuthPage}
-              />
-              <PrivetRoute
-                exact
-                path={routes.main}
-                redirectTo={routes.auth}
-                component={MainPage}
-              />
-              <PrivetRoute
-                exact
-                path={routes.planning}
-                redirectTo={routes.auth}
-                component={PlanningPage}
-              />
+      <>
+        <AppBar />
+        <Suspense fallback={<Loader />}>
+          <Switch>
+            <PublicRoute
+              exact
+              path={routes.auth}
+              restricted
+              redirectTo={routes.main}
+              component={AuthPage}
+            />
+            <PrivetRoute
+              exact
+              path={routes.main}
+              redirectTo={routes.auth}
+              component={MainPage}
+            />
+            <PrivetRoute
+              exact
+              path={routes.planning}
+              redirectTo={routes.auth}
+              component={PlanningPage}
+            />
 
-              <PrivetRoute
-                exact
-                path={routes.awards}
-                redirectTo={routes.auth}
-                component={AwardsPage}
-              />
+            <PrivetRoute
+              exact
+              path={routes.awards}
+              redirectTo={routes.auth}
+              component={AwardsPage}
+            />
 
-              <Route exact path={routes.contacts} component={ContactsPage} />
-              <Route component={NotFoundPage} />
-            </Switch>
-          </Suspense>
-        </>
-      ) : (
-        <Loader onLoad={true} />
-      )}
+            <Route exact path={routes.contacts} component={ContactsPage} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </Suspense>
+      </>
     </>
   )
 }

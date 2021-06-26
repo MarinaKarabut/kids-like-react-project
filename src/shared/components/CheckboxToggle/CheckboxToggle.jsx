@@ -1,14 +1,21 @@
+import {useState} from 'react'
 import PropTypes from 'prop-types'
 import { v4 } from 'uuid';
 
 import styles from './CheckboxToggle.module.scss'
 
-function CheckboxToggle({label, className, ...checkboxProps}) {
+function CheckboxToggle({ label, className, onClick }) {
+  const [checked, setChecked] = useState(false)
+    const handleChange = () => {
+        setChecked(!checked)
+    };
+
+  
   const id = v4();
     return (
         <div className={styles.switch}>
           <div className={styles.switchControl}>
-            <input id={id} className={ `${styles.switchToggle} ${className}`} type="checkbox"  {...checkboxProps} />
+          <input id={id} className={`${styles.switchToggle} ${className}`} type="checkbox" checked={checked} onChange={handleChange} onClick={onClick} />
             <label aria-hidden="true" className={styles.switchTrack} htmlFor={id}>
             <span className={styles.switchIcon}></span>
             </label>
@@ -22,11 +29,10 @@ export default CheckboxToggle;
 
 
 CheckboxToggle.defaultProps = {
-    checked:false,
     name:'',
     label: '',
     className: '',
-    onChange: () => { },
+  onClick: () => { }
     
 }
 

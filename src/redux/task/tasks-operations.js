@@ -29,7 +29,6 @@ export const taskUpdate = (id, body) => async (dispatch) => {
   dispatch(actions.taskUpdateRequest())
   try {
     const { data } = await axios.patch(`/task/single-active/${id}`, formData)
-    console.log(data)
     dispatch(actions.taskUpdateSuccess(data))
   } catch (error) {
     dispatch(actions.taskUpdateError(error))
@@ -43,20 +42,8 @@ export const taskSwitchActive = (id, body) => async (dispatch) => {
   dispatch(actions.taskSwitchActiveRequest())
   try {
     const { data } = await axios.patch(`/task/switch/${id}}`, date)
-    console.log(data)
     dispatch(actions.taskSwitchActiveSuccess(data))
   } catch (error) {
     dispatch(actions.taskSwitchActiveError(error))
   }
 }
-
-// export const tasksActive = (tasks) => async (dispatch) => {
-//   dispatch(actions.tasksActiveRequest())
-//   try {
-//     const { data } = await axios.patch("/task/active", tasks)
-//     console.log(data)
-//     dispatch(actions.tasksActiveSuccess(data))
-//   } catch (error) {
-//     dispatch(actions.tasksActiveError(error))
-//   }
-// }

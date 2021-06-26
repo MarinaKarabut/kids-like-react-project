@@ -5,7 +5,6 @@ import { v4 } from 'uuid';
 import styles from './FormCheckbox.module.scss'
 
 const FormCheckbox = ({ label, className, onChange, ...checkboxProps }) => {
-    console.log(checkboxProps)
     const id = v4();
 
     return (
@@ -31,7 +30,8 @@ FormCheckbox.defaultProps = {
     checked: false,
     className: '',
     label: '',
-    onChange: () => { }
+     onChange: () => { },
+  onClick: () => { }
 }
 
 FormCheckbox.propTypes = {

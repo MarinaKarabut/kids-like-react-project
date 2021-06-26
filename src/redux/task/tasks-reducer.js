@@ -30,6 +30,17 @@ const task = createReducer(initialStateTasks, {
     ...state,
     payload.updatedTask,
   ],
+  [taskUpdateSuccess]: (state, { payload }) => {
+    const newState = [...state]
+    const index = newState.findIndex(
+      (item) => item._id === payload.updatedTask.id
+    )
+    newState.splice(index, 1, {
+      ...payload.updatedTask,
+      _id: payload.updatedTask.id,
+    })
+    return [...newState]
+  },
 })
 
 const updatedRewardsPlanned = createReducer(initialStateUpdatedRewardsPlanned, {

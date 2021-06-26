@@ -1,4 +1,4 @@
-import React from 'react';
+import {useState} from 'react';
 import PropTypes from 'prop-types';
 
 import CheckboxToggle from '../../../shared/components/CheckboxToggle'
@@ -6,7 +6,10 @@ import CheckboxToggle from '../../../shared/components/CheckboxToggle'
 
 import styles from './AwardsCardItem.module.scss'
 
-const AwardsCardItem=({title, price,imageUrl}) =>{
+const AwardsCardItem = ({ id, title, price, imageUrl, onClick, isSelected }) => {
+
+    
+
     return (
         <li>
             <div className={styles.awardsImg}>
@@ -17,7 +20,7 @@ const AwardsCardItem=({title, price,imageUrl}) =>{
                     <p className={styles.awardsTitle}>{title}</p>
                     <p className={styles.awardsPrice}>{price} баллов</p> 
                 </div>
-                <CheckboxToggle/>
+                <CheckboxToggle  onClick={() => onClick()}/>
             </div>
         </li>)
 };

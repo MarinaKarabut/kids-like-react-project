@@ -10,14 +10,21 @@ import planerDesktop from '../../../images/mainPageImg/planer-desktop.png'
 import CurrentWeek from '../../components/CurrentWeek'
 import Footer from '../../Footer'
 
-import styles from './MainPage.module.scss'
 import DaysTabs from '../../components/DaysTabs/DaysTabs';
 import TasksList from '../../Tasks/components/TasksList'
 import { fetchTasks } from '../../../redux/task/tasks-operations';
+import useCurrentDay from './useCurrentDay'
+
+import styles from './MainPage.module.scss'
 
 
 const MainPage = () => {
     const tasks = useSelector(state => state.task.task, shallowEqual)
+    console.log(tasks)
+    const index = tasks.findIndex(
+      (item) => item._id === '60d2fff6eb09e6453cdddf04'
+    )
+    console.log(index)
 
     const [activeTab, setActiveTab] = useState(0)
 
@@ -39,7 +46,8 @@ const MainPage = () => {
     let arrayFilterTask = filterTask(activeTab)
 
     
-    const dateNow = moment().format('dddd, DD-MM-YYYY');
+   
+    const dateActiveTab= useCurrentDay(activeTab)
 
 
     return (
@@ -53,7 +61,7 @@ const MainPage = () => {
                             <CurrentWeek />
                             <div className={styles.currentDayContainer}>
                                 <p className={styles.myTasks}>Мои задачи:</p>
-                                <p className={styles.currentDay}>{dateNow}</p>
+                                <p className={styles.currentDay}>{dateActiveTab}</p>
                             </div>   
                         </div>
                         <div className={styles.mainPageWrapper}>

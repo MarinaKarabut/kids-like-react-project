@@ -6,8 +6,14 @@ const initialStateAwards = []
 
 const initialStateError = null
 
+const initialStateSelectedAwards = []
+
 const awards = createReducer(initialStateAwards, {
   [actions.fetchAwardsSuccess]: (_, { payload }) => payload.data.ruGifts,
+  // [actions.buyAwardsSuccess]: (_, { payload }) => payload.purchasedGiftIds,
+})
+
+const selectedAwards = createReducer(initialStateSelectedAwards, {
   [actions.buyAwardsSuccess]: (_, { payload }) => payload.purchasedGiftIds,
 })
 
@@ -19,5 +25,6 @@ const error = createReducer(initialStateError, {
 const awardsReducer = combineReducers({
   awards,
   error,
+  selectedAwards,
 })
 export default awardsReducer

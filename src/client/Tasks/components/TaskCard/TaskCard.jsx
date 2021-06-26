@@ -14,12 +14,11 @@ import styles from './TaskCard.module.scss'
 
 
 
-const TaskCard = ({ _id, title, reward, imageUrl, days}) => {
+const TaskCard = ({ _id, title, reward, imageUrl, days }) => {
     const location = useLocation();
     const currentDay = moment().format('YYYY-MM-DD');
 
     const [completed, setCompleted] = useState(false)
-    console.log(completed)
 
     const dispatch = useDispatch()
     

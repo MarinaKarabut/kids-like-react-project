@@ -14,10 +14,9 @@ export const fetchAwards = () => async (dispatch) => {
 export const buyAwards = (body) => async (dispatch) => {
   dispatch(actions.buyAwardsRequest())
   try {
-    const data = await axios.patch("/gift", body)
+    const { data } = await axios.patch("/gift", body)
     dispatch(actions.buyAwardsSuccess(data))
-    console.log(data)
   } catch (error) {
-    dispatch(actions.buyAwardsRequest(error))
+    dispatch(actions.buyAwardsError(error))
   }
 }
