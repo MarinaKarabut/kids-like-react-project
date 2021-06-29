@@ -8,7 +8,7 @@ import TaskCard from '../TaskCard'
 import styles from './TasksList.module.scss'
 
 const TasksList = ({ tasks, active}) => {
-    const tasksElements = tasks.map((task) => <TaskCard key={v4()} active={ active}{...task} ></TaskCard>)
+    const tasksElements = tasks.map((task) => <TaskCard key={v4()} active={ active} {...task} ></TaskCard>)
     return (
         <ul className={styles.list}>{
             tasksElements}

@@ -14,7 +14,7 @@ const RewardModal = () => {
 
     
     const itemElements = selectedAwards.map(item => (
-        <li key={item.id}>
+        <li key={item.id} className={styles.rewardsContainer}>
             <div className={styles.rewardImg}>
                 <img src={item.imageUrl} alt="" className={styles.reward} />
             </div>

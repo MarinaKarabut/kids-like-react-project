@@ -7,9 +7,10 @@ import {
   addTasksError,
   taskSwitchActiveSuccess,
   taskSwitchActiveError,
+  fetchTasksSuccess,
 } from "./tasks-actions"
 import { getCurrentUserSuccess, loginSuccess } from "../auth/auth-actions"
-import { fetchTasks } from "./tasks-operations"
+import { buyAwardsSuccess } from "../awards/awards-actions"
 
 const initialStateTasks = []
 
@@ -24,8 +25,7 @@ const initialStateError = null
 const task = createReducer(initialStateTasks, {
   [getCurrentUserSuccess]: (_, { payload }) => payload.week.tasks,
   [loginSuccess]: (_, { payload }) => payload.week.tasks,
-  [addTasksSuccess]: (state, { payload }) => [...state, payload],
-  [fetchTasks]: (_, { payload }) => payload.week.tasks,
+  [fetchTasksSuccess]: (_, { payload }) => payload.week.tasks,
   [taskSwitchActiveSuccess]: (state, { payload }) => {
     const newState = [...state]
     const index = newState.findIndex(
@@ -49,6 +49,7 @@ const task = createReducer(initialStateTasks, {
     })
     return [...newState]
   },
+  [addTasksSuccess]: (state, { payload }) => [...state, payload]
 })
 
 const updatedRewardsPlanned = createReducer(initialStateUpdatedRewardsPlanned, {
@@ -62,6 +63,7 @@ const updatedRewardsGained = createReducer(initialStateUpdatedRewardsGained, {
 
 const updatedBalance = createReducer(initialStateUpdatedBalance, {
   [taskSwitchActiveSuccess]: (_, { payload }) => payload.updatedBalance,
+  [buyAwardsSuccess]: (_, { payload }) => payload.updatedBalance,
 })
 
 const error = createReducer(initialStateError, {

@@ -1,0 +1,43 @@
+.authNavItem{
+    border-top: 1px solid #FFFFFF;
+    padding-top: 14px;
+    margin-bottom: 14px;
+}
+
+.authNavItem:last-child{
+    border-bottom: 1px solid #FFFFFF;
+    padding-bottom: 14px;
+  }
+
+  .authNavItem:first-child{
+margin-top: 80px;
+  }
+
+
+.authNavLink {
+      display: block;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 15px;
+      letter-spacing: 0.04em;
+      color: #FFFFFF;
+      margin-left: 30px;
+  }
+  
+  .active {
+      display: block;
+      color: #000000;
+  }
+
+
+// .navbarMenuItem {
+//     border-top: 1px solid #FFFFFF;
+//     padding-top: 14px;
+//     margin-bottom: 14px;
+//   }
+  
+//   .navbarMenuItem:last-child{
+//     border-bottom: 1px solid #FFFFFF;
+//     padding-bottom: 14px;
+//   }

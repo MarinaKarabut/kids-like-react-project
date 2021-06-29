@@ -1,47 +1,57 @@
 @import "src/shared/styles/base";
 
-.btnLogOut {
-  display: none;
-  @include tablet {
-    display: block;
-    border: none;
-    background-color: #ffffff;
-    color: #858598;
-  }
-}
-
-.email {
-  display: none;
-  @include tablet {
-    display: block;
-    margin-right: 15px;
-    color: #858598;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 1.25;
-    &::after {
-      content: "";
-      height: 19px;
-      border: 1px solid #858598;
-      margin-left: 15px;
-    }
+.burgerMenuUser{
+  display: flex;
+  align-items: center;
+  margin-top: 14px;
+  justify-content:flex-start;
+  margin-bottom: 40px;
+  margin-left: 30px;
+  @include tablet{
+    margin-bottom: 46px;
   }
 }
 
 .container {
-  display: none;
-  @include tablet {
-    display: flex;
+  display: flex;
     justify-content: center;
     align-items: center;
+  @include tablet {
+    display: none;
+    
   }
 }
 
-.firstLetter {
-  display: none;
+.btnLogOut {
+  border: none;
+    background-color: transparent;
+    fill: #FFFFFF;
   @include tablet {
-    display: block;
-    font-weight: 700;
+    display:none
+  }
+}
+
+.email {
+  display: block;
+  margin-right: 15px;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.25;
+  &::after {
+    content: "";
+    height: 19px;
+    border: 1px solid #FFFFFF;
+    margin-left: 15px;
+  }
+  @include tablet {
+    display: none
+  }
+}
+
+
+.firstLetter {
+  font-weight: 700;
     font-size: 18px;
     line-height: 1.22px;
     display: flex;
@@ -55,5 +65,37 @@
     border-radius: 50%;
     color: #ffffff;
     margin-right: 10px;
+  @include tablet {
+    display: none;
+    
   }
 }
+
+.navbarMenuLink {
+  width: 100%;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0.04em;
+  color: #FFFFFF;
+  margin-right: 15px;
+  margin-left: 30px;
+}
+
+.active {
+  color: #000000;
+}
+
+.navbarMenuItem {
+  border-top: 1px solid #FFFFFF;
+  padding-top: 14px;
+  margin-bottom: 14px;
+}
+
+.navbarMenuItem:last-child{
+  border-bottom: 1px solid #FFFFFF;
+  padding-bottom: 14px;
+}
+
+

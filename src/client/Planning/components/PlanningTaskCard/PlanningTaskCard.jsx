@@ -8,7 +8,8 @@ import styles from './PlanningTaskCard.module.scss'
 
 
 
-const PlanningTaskCard = ({ _id, title, reward, imageUrl, days }) => {
+const PlanningTaskCard = ({ _id, id, title, reward, imageUrl, days }) => {
+    const index = id || _id
     return (
         <li className={styles.item}>
             <div className={styles.tasksImg}>
@@ -20,7 +21,7 @@ const PlanningTaskCard = ({ _id, title, reward, imageUrl, days }) => {
                     <p className={styles.score}>{reward} балла</p>
                 </div>
                 <div>
-                    <SelectDay id={_id}  days={days}/>
+                    <SelectDay id={index} days={days} />
                 </div>
             </div>
         </li>

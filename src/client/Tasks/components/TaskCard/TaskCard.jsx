@@ -12,7 +12,8 @@ import styles from './TaskCard.module.scss'
 
 
 
-const TaskCard = ({ _id, title, reward, imageUrl, days , active}) => {
+const TaskCard = ({ _id, title, reward, imageUrl, days, active }) => {
+    // console.log(_id)
     const currentDay = moment().format('YYYY-MM-DD');
     const completedTask = days[active].isCompleted;
     const date = days[active].date;
@@ -25,8 +26,8 @@ const TaskCard = ({ _id, title, reward, imageUrl, days , active}) => {
     const dispatch = useDispatch()
     
     const toggleCompleted = (id) => {
-        // setCompleted(!completed)
-        dispatch(taskSwitchActive(id, currentDay))
+        console.log(id)
+        dispatch(taskSwitchActive(id, { date: currentDay }))
     }
 
 
@@ -41,7 +42,7 @@ const TaskCard = ({ _id, title, reward, imageUrl, days , active}) => {
                     <p className={styles.score}>{reward} балла</p>
                 </div>
                 <div>
-                    {exactDate && <CheckboxToggle onClick={() => toggleCompleted(_id)} />}
+                    {exactDate && <CheckboxToggle checked={completed} onChange={(e) => setCompleted(e.target.checked)} onClick={() => toggleCompleted(_id)} />}
                     {expiredDate && completed && <Completed />}
                     {expiredDate && !completed && <InCompleted />}
                 </div>
@@ -51,12 +52,14 @@ const TaskCard = ({ _id, title, reward, imageUrl, days , active}) => {
 }
 
 TaskCard.defaultProps = {
+    _id:'',
     title: '',
     reward: '',
     imageUrl: '',
 }
 
 TaskCard.propTypes = {
+    _id: PropTypes.string,
     title: PropTypes.string,
     reward: PropTypes.number,
     imageUrl: PropTypes.string,

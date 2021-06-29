@@ -14,7 +14,7 @@ const FormCheckbox = ({ label, className, onChange, ...checkboxProps }) => {
             </div>
             
           <div className={styles.checkbox}>
-                <input id={id} className={`${styles.checkboxInputHidden} ${className}`} type="checkbox" {...checkboxProps} />
+                <input id={id} className={`${styles.checkboxInputHidden} ${className}`} type="checkbox" onChange={onChange}{...checkboxProps} />
                 <span aria-hidden="true" className={styles.checkboxInput} onClick={onChange} >
                 <span className={styles.checkboxIcon}></span>
             </span>
@@ -31,7 +31,6 @@ FormCheckbox.defaultProps = {
     className: '',
     label: '',
      onChange: () => { },
-  onClick: () => { }
 }
 
 FormCheckbox.propTypes = {

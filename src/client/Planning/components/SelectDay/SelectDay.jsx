@@ -41,8 +41,7 @@ const SelectDay = (props) => {
                     aria-expanded={showDayList} onClick={toggleCheckList}>
                     <span className={styles.selectBtnWrapper}>+</span>
                 </Button>) :
-                (<Button type="submit" className={styles.selectBtn} aria-haspopup="true"
-                    aria-expanded={showDayList}  onClick={()=>onClickHandler(id)}>
+                (<Button type="submit" className={styles.selectBtn} onClick={()=>onClickHandler(id)}>
                     <span className={styles.selectBtnWrapper}>ok</span>
                 </Button>)}
         </>

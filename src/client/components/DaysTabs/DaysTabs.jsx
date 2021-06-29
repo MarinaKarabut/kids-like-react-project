@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState ,useEffect} from 'react'
 import moment from 'moment'
 import PropTypes from 'prop-types';
 import { days } from './days'
@@ -14,6 +14,7 @@ const DaysTabs = ({ onClick }) => {
         onClick(idx);
         setCurrentDay(idx)
     }
+
 
 
     const dayWeekEl = days.map(({ id, day,shortDay }, idx) =>

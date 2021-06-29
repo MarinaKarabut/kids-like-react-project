@@ -3,7 +3,9 @@ import { useSelector, shallowEqual } from "react-redux";
 
 import Logo from '../../../shared/components/Logo'
 import AuthNav from './components/Auth/AuthNav'
+import AuthNavMob from './components/AuthNavMob'
 import UserMenu from './components/UserMenu'
+import UserMenuMob from './components/UserMenuMob'
 import NavbarNav from './components/Navigation/NavbarNav'
 import Balance from './components/Balance'
 import { ReactComponent as BurgerMenuIcon } from '../../../images/Navigation/menu.svg';
@@ -34,8 +36,10 @@ const AppBar = () => {
                         {toggleBurgerMenu &&
                             <div className={styles.burgerMenu}>
                             <div className={styles.burgerMenuForm}> 
-                                <BurgerMenuIconClose className={styles.burgerMenuIconClose} onClick={handleClickToggleBurgerMenu} />
+                            <BurgerMenuIconClose className={styles.burgerMenuIconClose} onClick={handleClickToggleBurgerMenu}/>
+                                {isAuthenticated ? <UserMenuMob /> : <AuthNavMob />}
                             </div>
+                            
                             </div>}
                         <div className={styles.authNavContainer}>
                             {isAuthenticated && <NavbarNav />}

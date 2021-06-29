@@ -1,5 +1,4 @@
 @import "src/shared/styles/base";
-// @import "../../../../shared/styles/style.scss";
 
 .modalContainer {
   padding: 32px;
@@ -76,15 +75,8 @@
 }
 
 .rewardList {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  @include grid(2, repeat);
-  grid-gap: 30px;
-  @include tablet {
-    & {
-      @include grid(4, repeat);
-    }
-  }
+  @include grid(90px, auto-fit);
+  grid-gap: 35px;
 }
 
 .rewardTitle {
@@ -97,4 +89,10 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #000000;
+}
+
+.rewardsContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }

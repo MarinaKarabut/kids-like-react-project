@@ -1,5 +1,11 @@
+@import "src/shared/styles/base";
+
 .authNav {
-  list-style: none;
-  display: flex;
-  justify-content: center;
+  display: none;
+  @include tablet{
+    display: block;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
 }

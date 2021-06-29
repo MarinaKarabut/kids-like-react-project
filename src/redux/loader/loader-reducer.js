@@ -23,8 +23,8 @@ import {
 import {
   fetchAwardsRequest,
   fetchAwardsSuccess,
-  //   buyAwardsRequest,
-  //   buyAwardsSuccess,
+  buyAwardsRequest,
+  buyAwardsSuccess,
 } from "../awards/awards-actions"
 
 const loaderReducer = createReducer(false, {
@@ -55,8 +55,8 @@ const loaderReducer = createReducer(false, {
   [fetchAwardsRequest]: () => true,
   [fetchAwardsSuccess]: () => false,
 
-  //   [buyAwardsRequest]: () => true,
-  //   [buyAwardsSuccess]: () => false,
+  [buyAwardsRequest]: () => true,
+  [buyAwardsSuccess]: () => false,
 })
 
 export default loaderReducer
