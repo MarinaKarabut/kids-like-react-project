@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import {useState} from 'react'
 import { v4 } from 'uuid';
 
 import styles from './FormCheckbox.module.scss'

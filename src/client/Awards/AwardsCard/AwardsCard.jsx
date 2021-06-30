@@ -1,4 +1,3 @@
-import { useSelector, shallowEqual } from 'react-redux'
 import PropTypes from 'prop-types';
 import { v4 } from 'uuid'
 

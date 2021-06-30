@@ -10,6 +10,7 @@ const initialStateSelectedAwards = []
 
 const awards = createReducer(initialStateAwards, {
   [actions.fetchAwardsSuccess]: (_, { payload }) => payload.ruGifts,
+  // [actions.buyAwardsSuccess]: (_, { payload }) => payload.purchasedGiftIds,
   // [actions.buyAwardsSuccess]: (state, { payload }) => {
   //   const updateAwards = [...state] 
   //   updateAwards.map(award => award.id === payload.purchasedGiftIds ? { ...award, isSelected: true } : award,

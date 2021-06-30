@@ -1,4 +1,4 @@
-@import "../../../../../shared/styles/base";
+@import "src/shared/styles/base";
 
 .btnLogOut {
   display: none;
@@ -31,9 +31,7 @@
 .container {
   display: none;
   @include tablet {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex(center, center)
   }
 }
 

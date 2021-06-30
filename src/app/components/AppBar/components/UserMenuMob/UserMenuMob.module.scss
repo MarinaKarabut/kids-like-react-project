@@ -1,10 +1,8 @@
 @import "src/shared/styles/base";
 
 .burgerMenuUser{
-  display: flex;
-  align-items: center;
+  @include flex(flex-start, center);
   margin-top: 14px;
-  justify-content:flex-start;
   margin-bottom: 40px;
   margin-left: 30px;
   @include tablet{
@@ -13,9 +11,7 @@
 }
 
 .container {
-  display: flex;
-    justify-content: center;
-    align-items: center;
+  @include flex(center, center);
   @include tablet {
     display: none;
     
@@ -51,12 +47,10 @@
 
 
 .firstLetter {
+  @include flex(center, center);
   font-weight: 700;
     font-size: 18px;
     line-height: 1.22px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     letter-spacing: 0.04em;
     width: 26px;

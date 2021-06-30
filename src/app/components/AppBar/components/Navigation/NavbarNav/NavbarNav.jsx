@@ -6,8 +6,7 @@ import {menuItems} from "./menuItems";
 
 import styles from "./NavbarNav.module.scss";
 
-const NavbarNav =({ isAuthenticated })=> {
-    // const visibleMenuElements = isAuthenticated ? [...menuItems] : menuItems.filter(({ text }) => text !== "Contacts");
+const NavbarNav =()=> {
      const navbarMenuElements = menuItems.map(item => <NavbarMenuItem key={v4() }{...item} />)
 
     return (

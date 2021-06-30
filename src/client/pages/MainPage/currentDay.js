@@ -1,6 +1,6 @@
 import moment from "moment"
 
-const useCurrentDay = (index) => {
+const getCurrentDay = (index) => {
   const now = new Date()
 
   const currentDayIndex = now.getDay() || 7
@@ -12,4 +12,4 @@ const useCurrentDay = (index) => {
   return currentWeek[index].format("dddd, DD-MM-YYYY")
 }
 
-export default useCurrentDay
+export default getCurrentDay

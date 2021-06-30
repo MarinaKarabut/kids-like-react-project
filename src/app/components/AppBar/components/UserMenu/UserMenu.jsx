@@ -1,8 +1,9 @@
+import {useState} from 'react'
+import { useSelector, shallowEqual} from 'react-redux';
 
-import { useSelector, shallowEqual, useDispatch} from 'react-redux';
-
-import {logOut} from '../../../../../redux/auth/auth-operations'
 import { ReactComponent as LogOut } from '../UserMenu/logout.svg';
+import Modal from '../../../../../shared/components/Modal'
+import LogOutModal from '../../components/UserMenu/LogOutModal'
 
 
 import styles from './UserMenu.module.scss'
@@ -11,15 +12,19 @@ const UserMenu = () => {
 
     const email = useSelector(state => state.auth.user.email, shallowEqual)
 
-    const dispatch = useDispatch()
-
-    const onLogout = ()=>dispatch(logOut())
+    const [openModal, setOpenModal] = useState(false)
+    const toggleModal = () => {
+    setOpenModal(!openModal)
+}
 
     return (
         <div className={styles.container}>
             <span className={ styles.firstLetter}>{email.slice(0, 1).toUpperCase()}</span>
             <span className={ styles.email}>{email}</span>
-            <LogOut onClick={onLogout} className={styles.btnLogOut}></LogOut>
+            {openModal && (<Modal onClose={toggleModal}>
+        <LogOutModal onClose={toggleModal}/>
+        </Modal>)}
+            <LogOut onClick={toggleModal} className={styles.btnLogOut}></LogOut>
         </div>
     )
 };

@@ -1,5 +1,4 @@
 import { useSelector, shallowEqual } from 'react-redux';
-// import { getAwards } from '../../../../redux/awards/awards-selectors';
 
 import cat from './images/cat.png';
 

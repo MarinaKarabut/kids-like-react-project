@@ -1,5 +1,5 @@
-import { useState ,useEffect} from 'react';
-import { shallowEqual, useSelector,useDispatch } from 'react-redux'
+import { useState } from 'react';
+import { shallowEqual, useSelector } from 'react-redux'
 import 'moment/locale/ru' 
 import { Link } from 'react-router-dom';
 import routes from '../../../app/routes'
@@ -12,7 +12,7 @@ import Footer from '../../Footer'
 import DaysTabs from '../../components/DaysTabs/DaysTabs';
 import TasksList from '../../Tasks/components/TasksList'
 // import { fetchTasks } from '../../../redux/task/tasks-operations';
-import useCurrentDay from './useCurrentDay'
+import getCurrentDay from './currentDay'
 
 import styles from './MainPage.module.scss'
 
@@ -39,13 +39,13 @@ const MainPage = () => {
 
     const arrayFilterTask = filterTask(activeTab)
 
-    const dateActiveTab= useCurrentDay(activeTab)
+    const dateActiveTab= getCurrentDay(activeTab)
 
 
     return (
         <section className={styles.mainPageContainer}>
             <div>
-                <DaysTabs onClick={ handleClick}/>
+                <DaysTabs onClick={ handleClick} />
             </div>
                 <div className={styles.mainPage}>
                     <div className={styles.wrapper}>

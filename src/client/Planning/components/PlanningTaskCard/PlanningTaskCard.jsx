@@ -1,11 +1,8 @@
 import PropTypes from 'prop-types';
 
-
 import SelectDay from '../SelectDay'
 
-
 import styles from './PlanningTaskCard.module.scss'
-
 
 
 const PlanningTaskCard = ({ _id, id, title, reward, imageUrl, days }) => {

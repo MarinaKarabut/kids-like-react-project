@@ -1,8 +1,7 @@
-import { useState,useEffect } from 'react'
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 import {taskUpdate} from '../../../../redux/task/tasks-operations'
-
 import DaysList from '../DaysList'
 import Button from '../../../../shared/components/Button'
 

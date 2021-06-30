@@ -1,7 +1,7 @@
+@import "src/shared//styles/base";
+
 .wrapper {
   margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex(center, center);
   height: 50vh;
 }

@@ -14,7 +14,7 @@
   }
 
   &Input {
-    @include flex(start, center);
+    @include flex(flex-start, center);
     flex-shrink: 0;
     position: relative;
     display: flex;

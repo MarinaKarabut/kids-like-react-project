@@ -2,7 +2,7 @@
 
 .balanceContainer {
   margin-left: 40px;
-  @include flex(start, center);
+  @include flex(flex-start, center);
   @include tablet {
     margin-left: 42px;
   }

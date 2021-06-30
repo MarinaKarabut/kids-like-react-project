@@ -1,5 +1,4 @@
-import { useState ,useEffect} from 'react'
-import moment from 'moment'
+import { useState } from 'react'
 import PropTypes from 'prop-types';
 import { days } from './days'
 import CurrentWeek from '../CurrentWeek'

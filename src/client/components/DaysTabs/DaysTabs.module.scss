@@ -1,4 +1,4 @@
-@import "../../../shared//styles/base";
+@import "src/shared//styles/base";
 
 .daysTabs {
   @include mobile-end {
@@ -12,8 +12,7 @@
     background: $primary-bg-color;
   }
   @include desktop {
-    align-items: start;
-    justify-content: flex-end;
+    @include flex(flex-end, flex-start);
     padding: 0;
     width: 240px;
     height: 100vh;
@@ -71,9 +70,7 @@
   line-height: 1.25;
   width: 35px;
   height: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex(center, center);
   text-align: center;
   text-transform: capitalize;
   letter-spacing: 0.04em;

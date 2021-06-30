@@ -1,6 +1,6 @@
 import { Suspense, lazy, useEffect } from "react"
 import { Switch, Route } from "react-router-dom"
-import { shallowEqual, useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 
 import PrivetRoute from "../../app/components/AppBar/components/PrivetRoute"
 import PublicRoute from "../../app/components/AppBar/components/PublicRoute"
