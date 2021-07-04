@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, shallowEqual, useSelector } from 'react-redux'
-import { useEffect } from 'react'
 import { alert, error} from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
 import 'react-pnotify'
 
-import { fetchAwards, buyAwards } from '../../../redux/awards/awards-operation'
+import { buyAwards } from '../../../redux/awards/awards-operation'
 
 import AwardsCard from '../../Awards/AwardsCard'
 import Button from '../../../shared/components/Button'
@@ -25,11 +24,6 @@ const AwardsPage = () => {
     const balance = useSelector(state => state.auth.balance, shallowEqual)
     
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(fetchAwards())
-    }, [dispatch])
-
 
     const [selectedAwards, setSelectedAwards] = useState([])
 
@@ -83,7 +77,7 @@ const AwardsPage = () => {
                                     
                 </div>              
                 <div className={styles.awardsCardContainer}>
-                    <AwardsCard ruGifts = {ruGifts} onClick={addAwards}/>
+                    <AwardsCard  onClick={addAwards}/>
                 </div>
                 <div className={styles.awardsBtnContainer}>
                     

@@ -6,7 +6,7 @@ import CheckboxToggle from '../../../shared/components/CheckboxToggle'
 
 import styles from './AwardsCardItem.module.scss'
 
-const AwardsCardItem = ({id, title, price, imageUrl, onClick, isSelected }) => {
+const AwardsCardItem = ({title, price, imageUrl, onClick, isSelected }) => {
     const [selected, setSelected] = useState(isSelected)
     console.log(selected)
 
@@ -24,7 +24,7 @@ const AwardsCardItem = ({id, title, price, imageUrl, onClick, isSelected }) => {
                     <p className={styles.awardsTitle}>{title}</p>
                     <p className={styles.awardsPrice}>{price} баллов</p> 
                 </div>
-                <CheckboxToggle name='award' checked={selected} onChange={handleChange } onClick={()=>onClick(id)}/>
+                <CheckboxToggle  checked={selected} onChange={handleChange } onClick={onClick}/>
             </div>
         </li>)
 };
